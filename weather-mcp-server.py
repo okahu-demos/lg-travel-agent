@@ -13,7 +13,7 @@ port = int(os.getenv("PORT", DEFAULT_PORT))
 weather_mcp = FastMCP(name="WeatherServer", stateless_http=True)
 
 @weather_mcp.tool()
-async def get_weather(city: str) -> Dict[str, Any]:
+async def demo_get_weather(city: str) -> Dict[str, Any]:
     """
     Get mock weather information for a specified city.
     
