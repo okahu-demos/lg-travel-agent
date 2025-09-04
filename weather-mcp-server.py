@@ -6,7 +6,7 @@ from typing import Dict, Any
 from fastapi import FastAPI, HTTPException
 from mcp.server.fastmcp import FastMCP
 
-DEFAULT_PORT = 8002
+DEFAULT_PORT = 8007
 port = int(os.getenv("PORT", DEFAULT_PORT))
 
 # Initialize the weather MCP server

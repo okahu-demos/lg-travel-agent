@@ -1,7 +1,3 @@
-# Enable Monocle Tracing
-from monocle_apptrace import setup_monocle_telemetry
-setup_monocle_telemetry(workflow_name = 'okahu-demo-lg-travel-agent', monocle_exporters_list = 'okahu')
-
 import asyncio
 import os
 import time
@@ -12,9 +8,13 @@ from langgraph_supervisor import create_supervisor
 from langchain_core.tools import tool
 from langchain_mcp_adapters.client import MultiServerMCPClient
 
+# Enable Monocle Tracing
+from monocle_apptrace import setup_monocle_telemetry
+setup_monocle_telemetry(workflow_name = 'okahu-demo-lg-travel-agent', monocle_exporters_list = 'okahu')
+
 import logging
 logger = logging.getLogger(__name__)
-DEFAULT_PORT = 8002
+DEFAULT_PORT = 8007
 port = int(os.getenv("PORT", DEFAULT_PORT))
 
 @tool("okahu-demo-lg-tool_book_hotel", description="Book a hotel for a stay")
@@ -96,5 +96,7 @@ async def run_agent(request: str):
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.WARN)
+    os.environ["OPENAI_API_KEY"] = "<OPENAI-API-KEY>"  # Replace with your OpenAI API key
+    os.environ["OKAHU_API_KEY"] = "<OKAHU-API-KEY>"
     request = input("\nI am a travel booking agent. How can I assist you with your travel plans? (You can ask me to book flights, hotels, or check the weather at any location.): ")
     asyncio.run(run_agent(request))

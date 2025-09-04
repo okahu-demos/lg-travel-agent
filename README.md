@@ -20,22 +20,21 @@ You'll need
   - Copy the API key generated and save. Note that you'll not be able to extract that API key after you navigate away from that page.
 
 ## Configure the demo environment
-- Copy the file agent_env.sh.template to agent_env.sh
-- Edit the agent_env.sh file to add the OpenAI API Key and Okahu API key and save
+- Edit lg-travel-agent.py and set the API keys as follows:
+  - Replace <OPENAI-API-KEY> with the value of OpenAI API key
+  - Replace <OKAHU-API-KEY> with the value of Okahu API key
 
 ## Run the travel agent app 
 This application is an travel agent app that mocks travel related tasks like flight booking, hotel booking and checking weather in a city.
 It's is a python program using Langgraph Agent framework. 
 The app uses OpenAI gpt-4o model for inference.
 
-1. Source the agent environment
-  ```source agent_env.sh```
-2. Start the mock weather MCP server
+1. Start the mock weather MCP server
   ```python weather-mcp-server.py > mcp.out 2>&1 &```
-3. Verify mcp server is running
+2. Verify mcp server is running
   ```cat mcp.out```
   The above command prints content of mpc.out file which should show a message `Application startup complete`
-4. Run the pre-instrumented travel agent app with following command
-   ```python lc-travel-agent.py```
+3. Run the pre-instrumented travel agent app with following command
+   ```python lg-travel-agent.py```
    The application will prompt you for a travel booking task. You can enter something like `Book a flight from SFO to BOM next week. Book Marriot hotel in central mumbai. Also how't the weather going to be in Mumbai next week?`
    It should responds with successful booking of flight and hotel, as well as weather forcast.
