@@ -57,7 +57,7 @@ The app uses OpenAI gpt-4o model for inference.
 - Right click and select Run Python --> Run python in terminal
 
 ## View traces in Okahu
-- Login to [Okahu portal](portal.okahu.co)
+- Login to [Okahu portal](https://portal.okahu.co)
 - Select 'Component' tab
 - Type the workflow name 'okahu-demo-lg-travel-agent' in the search box
 - Click the workflow 'adk-travel-agent' tile
