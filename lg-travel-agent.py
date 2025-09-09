@@ -8,8 +8,8 @@ from langgraph_supervisor import create_supervisor
 from langchain_core.tools import tool
 from langchain_mcp_adapters.client import MultiServerMCPClient
 
-os.environ["OPENAI_API_KEY"] = "<OPENAI-API-KEY>"  # Replace with your OpenAI API key
-os.environ["OKAHU_API_KEY"] = "<OKAHU-API-KEY>"
+# os.environ["OPENAI_API_KEY"] = "<OPENAI-API-KEY>"  # Replace with your OpenAI API key
+# os.environ["OKAHU_API_KEY"] = "<OKAHU-API-KEY>"
 
 # Enable Monocle Tracing
 from monocle_apptrace import setup_monocle_telemetry
@@ -19,6 +19,13 @@ import logging
 logger = logging.getLogger(__name__)
 DEFAULT_PORT = 8007
 port = int(os.getenv("PORT", DEFAULT_PORT))
+
+# Global max output tokens (can be overridden via environment variable MAX_OUTPUT_TOKENS)
+MAX_OUTPUT_TOKENS = int(os.getenv("MAX_OUTPUT_TOKENS", "1000"))
+
+def model_factory():
+    """Create a ChatOpenAI model instance with the global max token setting."""
+    return ChatOpenAI(model="gpt-4o", max_tokens=MAX_OUTPUT_TOKENS)
 
 @tool("okahu-demo-lg-tool_book_hotel", description="Book a hotel for a stay")
 def book_hotel(hotel_name: str):
@@ -51,21 +58,21 @@ async def setup_agents():
     weather_tools = await get_mcp_tools()
 
     flight_assistant = create_react_agent(
-        model="openai:gpt-4o",
+    model=model_factory(),
         tools=[book_flight],
         prompt="You are a flight booking assistant",
         name="okahu-demo-lg-agent-air_travel_assistant"
     )
 
     hotel_assistant = create_react_agent(
-        model="openai:gpt-4o",
+    model=model_factory(),
         tools=[book_hotel],
         prompt="You are a hotel booking assistant",
         name="okahu-demo-lg-agent-lodging_assistant"
     )
 
     weather_agent = create_react_agent(
-        model="openai:gpt-4o",
+    model=model_factory(),
         tools=weather_tools,
         prompt="You are a weather information assistant. Please use the tool available to you for checking weather. Extract city name from the user query and pass it to the weather tool.",
         name="okahu-demo-lg-agent-weather_assistant"
@@ -73,10 +80,10 @@ async def setup_agents():
     supervisor = create_supervisor(
         supervisor_name="okahu-demo-lg-agent-travel_supervisor",
         agents=[flight_assistant, hotel_assistant, weather_agent],
-        model=ChatOpenAI(model="gpt-4o"),
+    model=model_factory(),
         prompt=(
             "You manage a hotel booking assistant and a"
-            "flight booking assistant. Assign work to them."
+            "flight booking assistant. Assign work to them. Each assistant is skilled in their own area ONLY and cannot do other tasks. "
             "If the user asks for weather information, delegate to the weather assistant."
         )
     ).compile()
