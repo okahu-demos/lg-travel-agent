@@ -38,12 +38,13 @@ jobs:
             - name: Setup Python
               uses: actions/setup-python@v5
               with:
-                  python-version: "3.11"
+                  python-version: "3.12"
 
             - name: Install dependencies and run tests
               run: |
                   pip install -r requirements.txt
                   pip install -r tests/requirements.txt
+                  python weather-mcp-server.py &
                   python -m pytest tests/test_lg_travel_agent.py -vv --log-cli-level=DEBUG --junit-xml=test_okahu_demos_lg_travel_agent-results.xml
 
             - name: Test Summary
