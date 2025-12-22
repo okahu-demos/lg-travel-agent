@@ -5,7 +5,7 @@ import pytest
 import logging
 from dotenv import load_dotenv
 
-from lg_travel_agent import run_agent
+from lg_travel_agent import run_agent, setup_agents
 from monocle_test_tools import TestCase, MonocleValidator
 
 
@@ -16,7 +16,7 @@ load_dotenv()
 agent_test_cases:list[TestCase] = [
     {
         "test_input": ["Book a flight from SFO to BOM on March 17th 2026."],
-        "test_output": "Your flight from SFO to BOM on March 17th, 2026 has been successfully booked",
+        "test_output": "Your flight from SFO to BOM on March 17th, 2026 has been successfully booked.",
         "comparer": "similarity",
     },
     {
@@ -230,8 +230,10 @@ agent_test_cases:list[TestCase] = [
 
 @MonocleValidator().monocle_testcase(agent_test_cases)
 async def test_run_agents(my_test_case: TestCase):
-   await MonocleValidator().test_workflow_async(run_agent, my_test_case)
-   await sleep(2) # Ensure all telemetry is flushed
+    await MonocleValidator().test_workflow_async(run_agent, my_test_case)
+    # coordinator = await setup_agents()
+    # await MonocleValidator().test_agent_async(coordinator, "langgraph", my_test_case)
+    await sleep(2) # Ensure all telemetry is flushed
 
 if __name__ == "__main__":
     pytest.main([__file__]) 
