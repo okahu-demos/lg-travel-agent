@@ -209,3 +209,5 @@ __marimo__/
 .env
 .monocle
 mcp.out
+
+venv*
