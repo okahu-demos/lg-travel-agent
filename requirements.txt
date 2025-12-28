@@ -1,15 +1,15 @@
-fastapi==0.127.0
+fastapi==0.128.0
 uvicorn==0.40.0
 mcp==1.25.0
-langchain==0.3.27
-langchain-core==0.3.79
-langchain-openai==0.3.35
-langchain-community==0.3.31
+langchain==1.2.0
+langchain-core==1.2.5
+langchain-openai==1.1.6
+langchain-community==0.4.1
 langchainhub==0.1.21
 tavily-python==0.7.17
-langgraph-checkpoint-sqlite==2.0.11
-langgraph==0.3.5
-langgraph-supervisor==0.0.25
-langchain-mcp-adapters==0.1.12
+langgraph-checkpoint-sqlite==3.0.1
+langgraph==1.0.5
+langgraph-supervisor==0.0.31
+langchain-mcp-adapters==0.2.1
 --extra-index-url https://okahu.jfrog.io/artifactory/api/pypi/okahu-patch-pypi/simple
 monocle_apptrace==0.7.0b2
