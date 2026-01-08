@@ -13,7 +13,7 @@ from langchain_mcp_adapters.client import MultiServerMCPClient
 
 # Enable Monocle Tracing
 from monocle_apptrace import setup_monocle_telemetry
-setup_monocle_telemetry(workflow_name = 'okahu_demo_lg_travel_agent', monocle_exporters_list = 'file,okahu')
+setup_monocle_telemetry(workflow_name = 'okahu_demos_lg_travel_agent', monocle_exporters_list = 'file,okahu')
 
 import logging
 logger = logging.getLogger(__name__)
