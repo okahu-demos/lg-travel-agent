@@ -145,6 +145,9 @@ Try the sample inputs below and then visualize the Monocle generated traces in O
 
    > Book a flight from SFO to BOM next week. Book a Marriott hotel in central Mumbai. Also what's the weather going to be in Mumbai next week?
 
+**Expected output**:
+![Monocle Trace Data Json from Demo](images/monocle_trace_json.png)
+
 ## Option 1: View traces in VS Code
 
 1. Select Okahu AI Observability extension 
