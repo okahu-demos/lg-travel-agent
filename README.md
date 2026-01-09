@@ -74,7 +74,7 @@ Try the sample inputs below and then visualize the Monocle generated traces in O
 1. Create python virtual envirmonment
 
   ```
-  python -m venv .env
+  python -m venv .venv
   ```
 
 2. Activate virtual environment
@@ -82,22 +82,31 @@ Try the sample inputs below and then visualize the Monocle generated traces in O
   - Mac/Linux
 
   ```
-  . ./.env/bin/activate
+  . ./.venv/bin/activate
   ```
 
   - Windows
   
   ```
-  .env\scripts\activate
+  .venv\Scripts\activate.bat
   ```
 
 3. Install python dependencies: ```pip install -r requirements.txt```
 
 4. Configure the demo environment:
-
+  
+ - Mac/Linux
+  
   ```
   export OKAHU_API_KEY=
   export OPENAI_API_KEY=
+  ```
+
+  - Windows
+  
+  ```
+  set OKAHU_API_KEY=
+  set OPENAI_API_KEY=
   ```
 
   - Replace <OPENAI-API-KEY> with the value of OpenAI API key
@@ -105,8 +114,17 @@ Try the sample inputs below and then visualize the Monocle generated traces in O
   
 5. Start the mock weather MCP server
 
+  - Mac/Linux
+  
   ```
   python weather-mcp-server.py > mcp.out 2>&1 & while ! grep -q "Application startup complete" mcp.out; do sleep 0.2; done; grep "Application startup complete" mcp.out
+  ```
+
+  - Windows
+  
+  ```
+  cmd /c "start "" /B cmd /c ^"python -u weather-mcp-server.py > mcp.out 2>&1^" & :wait & powershell -Command ^"Start-Sleep -Milliseconds 2000^" 
+  findstr /C:^"Application startup complete^" mcp.out"
   ```
 
   **Expected output**: `Application startup complete`
@@ -159,12 +177,19 @@ Try the sample inputs below and then visualize the Monocle generated traces in O
 ## Option 3: Run automated tests and view results in VS Code
 
 This demo includes automated tests using **Monocle's pytest integration** for comprehensive agent validation and observability.
+1. Enter OKAHU_API_KEY, OPENAI_API_KEY, and OKAHU_INGESTION_ENDPOINT in a .env file using the .env.example template
 
-1. Open the Testing panel in VS Code
+2. Install python dependencies: 
+   ```
+   cd tests
+   pip install -r requirements.txt
+   ```
+ 
+3. Open the Testing panel in VS Code
 
     ![Testing in VS Code](images/testing.png)
 
-2. Click the "Run Tests" button to execute all tests or run individual test files:
+4. Click the "Run Tests" button to execute all tests or run individual test files:
    - `test_lg_travel_agent.py` - MonocleValidator-based regression tests
    - `test_lg_travel_agent_fluent.py` - Fluent API tests
 
@@ -174,15 +199,15 @@ This demo includes automated tests using **Monocle's pytest integration** for co
 - Test results automatically sent to Okahu portal for observability
 - Fluent assertions like `called_tool()`, `called_agent()`, `contains_input()`
 
-3. View test results directly in the Testing panel:
+5. View test results directly in the Testing panel:
    - ✅ Passed tests shown in green
    - ❌ Failed tests shown in red with detailed error messages
 
    ![Passed and failed test cases](images/pass_fail_test.png)
 
-4. Click on any test to see its output and trace validation results
+6. Click on any test to see its output and trace validation results
 
-5. Alternatively, run tests from the terminal:
+7. Alternatively, run tests from the terminal:
    ```bash
    pytest tests/test_lg_travel_agent.py -vv
    ```
