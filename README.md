@@ -63,7 +63,7 @@ Try the sample inputs below and then visualize the Monocle generated traces in O
 
 2. Install [Okahu Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=OkahuAI.okahu-ai-observability)
 
-3. An Okahu tenant and API key to [Okahu AI Observability Cloud](https://www.okahu.co)
+3. An Okahu tenant and API key to [Okahu AI Observability Cloud](http://portal.okahu.co/)
   - Sign up for Okahu AI accout with your LinkedIn for Github ID
   - Once you login, nagivate to 'Settings' on the left navigation bar and click on 'Generate Okahu API Key'
   - Copy the API key generated and save. Note that you'll not be able to extract that API key after you navigate away from that page.
