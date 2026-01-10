@@ -1,0 +1,1844 @@
+[{
+    "name": "openai.resources.chat.completions.AsyncCompletions.create",
+    "context": {
+        "trace_id": "2884cf1fe97c1a36481224157f7c6573",
+        "span_id": "bbd44483e9fc8029",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "c80ba89670885d8a",
+    "start_time": "2026-01-09T22:59:12.670304Z",
+    "end_time": "2026-01-09T22:59:13.904334Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0b6",
+        "monocle_apptrace.language": "python",
+        "span_source": "C:\\K_Coding\\git_src_tmp\\lg-travel-agent\\.venv\\Lib\\site-packages\\openai\\_legacy_response.py:381",
+        "workflow.name": "okahu_demos_lg_travel_agent",
+        "span.type": "inference.modelapi",
+        "scope.agentic.turn": "b416e60a1ff8ce5652cf98d8c63a652c",
+        "scope.agentic.invocation": "e93780ad47a529942ed86cce97e29f67"
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_lg_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+
+,{
+    "name": "langchain.chat_models.base.BaseChatModel.ainvoke",
+    "context": {
+        "trace_id": "2884cf1fe97c1a36481224157f7c6573",
+        "span_id": "c80ba89670885d8a",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "01bf181da85ba649",
+    "start_time": "2026-01-09T22:59:12.665118Z",
+    "end_time": "2026-01-09T22:59:13.912295Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0b6",
+        "monocle_apptrace.language": "python",
+        "span_source": "C:\\K_Coding\\git_src_tmp\\lg-travel-agent\\.venv\\Lib\\site-packages\\langchain_core\\runnables\\base.py:5570",
+        "workflow.name": "okahu_demos_lg_travel_agent",
+        "entity.1.type": "inference.openai",
+        "entity.1.provider_name": "api.openai.com",
+        "entity.1.inference_endpoint": "https://api.openai.com/v1/",
+        "entity.2.name": "gpt-4o",
+        "entity.2.type": "model.llm.gpt-4o",
+        "span.type": "inference.framework",
+        "entity.3.name": "transfer_to_okahu_demo_lg_agent_air_travel_assistant",
+        "entity.3.type": "tool.function",
+        "scope.agentic.turn": "b416e60a1ff8ce5652cf98d8c63a652c",
+        "scope.agentic.invocation": "e93780ad47a529942ed86cce97e29f67",
+        "entity.count": 3,
+        "span.subtype": "delegation"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-01-09T22:59:12.665399Z",
+            "attributes": {
+                "input": [
+                    "{\"system\": \"You manage a hotel booking assistant and aflight booking assistant. Assign work to them. Each assistant is skilled in their own area ONLY and cannot do other tasks. If the user asks for weather information, delegate to the weather assistant.\"}",
+                    "{\"human\": \"Book a flight from SFO to BOM next week. Book a Marriott hotel in central Mumbai. Also what's the weather going to be in Mumbai next week?\"}"
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-01-09T22:59:13.912206Z",
+            "attributes": {
+                "response": "{\"ai\": {\"name\": \"transfer_to_okahu_demo_lg_agent_air_travel_assistant\", \"args\": {}, \"id\": \"call_yfWnLnAObPc5xMttV0SPOCxc\", \"type\": \"tool_call\"}}"
+            }
+        },
+        {
+            "name": "metadata",
+            "timestamp": "2026-01-09T22:59:13.912256Z",
+            "attributes": {
+                "completion_tokens": 21,
+                "prompt_tokens": 207,
+                "total_tokens": 228,
+                "finish_reason": "tool_calls",
+                "finish_type": "tool_call"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_lg_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+
+,{
+    "name": "langgraph.graph.state.CompiledStateGraph.ainvoke",
+    "context": {
+        "trace_id": "2884cf1fe97c1a36481224157f7c6573",
+        "span_id": "01bf181da85ba649",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "b0d453c9942659af",
+    "start_time": "2026-01-09T22:59:12.660775Z",
+    "end_time": "2026-01-09T22:59:13.922924Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0b6",
+        "monocle_apptrace.language": "python",
+        "span_source": "C:\\K_Coding\\git_src_tmp\\lg-travel-agent\\.venv\\Lib\\site-packages\\langgraph\\_internal\\_runnable.py:706",
+        "workflow.name": "okahu_demos_lg_travel_agent",
+        "entity.1.type": "agent.langgraph",
+        "entity.1.name": "okahu_demo_lg_agent_travel_supervisor",
+        "last.inference": "c80ba89670885d8a:transfer_to_okahu_demo_lg_agent_air_travel_assistant",
+        "span.type": "agentic.invocation",
+        "scope.agentic.turn": "b416e60a1ff8ce5652cf98d8c63a652c",
+        "scope.agentic.invocation": "e93780ad47a529942ed86cce97e29f67",
+        "entity.count": 1,
+        "span.subtype": "content_processing",
+        "monocle.last.agent.invocation.id": "",
+        "monocle.last.agent.name": ""
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-01-09T22:59:12.660927Z",
+            "attributes": {
+                "input": [
+                    "Book a flight from SFO to BOM next week. Book a Marriott hotel in central Mumbai. Also what's the weather going to be in Mumbai next week?"
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-01-09T22:59:13.922425Z",
+            "attributes": {
+                "response": "Successfully transferred to okahu_demo_lg_agent_air_travel_assistant"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_lg_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+
+,{
+    "name": "openai.resources.chat.completions.AsyncCompletions.create",
+    "context": {
+        "trace_id": "2884cf1fe97c1a36481224157f7c6573",
+        "span_id": "902a0f97e8dfce10",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "6c8873c44bc406d2",
+    "start_time": "2026-01-09T22:59:13.931444Z",
+    "end_time": "2026-01-09T22:59:14.720661Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0b6",
+        "monocle_apptrace.language": "python",
+        "span_source": "C:\\K_Coding\\git_src_tmp\\lg-travel-agent\\.venv\\Lib\\site-packages\\openai\\_legacy_response.py:381",
+        "workflow.name": "okahu_demos_lg_travel_agent",
+        "span.type": "inference.modelapi",
+        "scope.agentic.turn": "b416e60a1ff8ce5652cf98d8c63a652c",
+        "scope.agentic.invocation": "f722c2bceba27be55042d081dca0e5d4"
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_lg_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+
+,{
+    "name": "langchain.chat_models.base.BaseChatModel.ainvoke",
+    "context": {
+        "trace_id": "2884cf1fe97c1a36481224157f7c6573",
+        "span_id": "6c8873c44bc406d2",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "1beceb35d1c41735",
+    "start_time": "2026-01-09T22:59:13.929593Z",
+    "end_time": "2026-01-09T22:59:14.722656Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0b6",
+        "monocle_apptrace.language": "python",
+        "span_source": "C:\\K_Coding\\git_src_tmp\\lg-travel-agent\\.venv\\Lib\\site-packages\\langchain_core\\runnables\\base.py:5570",
+        "workflow.name": "okahu_demos_lg_travel_agent",
+        "entity.1.type": "inference.openai",
+        "entity.1.provider_name": "api.openai.com",
+        "entity.1.inference_endpoint": "https://api.openai.com/v1/",
+        "entity.2.name": "gpt-4o",
+        "entity.2.type": "model.llm.gpt-4o",
+        "span.type": "inference.framework",
+        "entity.3.name": "okahu_demo_lg_tool_book_flight",
+        "entity.3.type": "tool.function",
+        "scope.agentic.turn": "b416e60a1ff8ce5652cf98d8c63a652c",
+        "scope.agentic.invocation": "f722c2bceba27be55042d081dca0e5d4",
+        "entity.count": 3,
+        "span.subtype": "tool_call"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-01-09T22:59:13.929900Z",
+            "attributes": {
+                "input": [
+                    "{\"system\": \"You are a flight booking assistant. You only handle flight booking. Just handle that part from what the user says, ignore other parts of the requests.\"}",
+                    "{\"human\": \"Book a flight from SFO to BOM next week. Book a Marriott hotel in central Mumbai. Also what's the weather going to be in Mumbai next week?\"}",
+                    "{\"ai\": \"[{\\\"name\\\": \\\"transfer_to_okahu_demo_lg_agent_air_travel_assistant\\\", \\\"args\\\": {}, \\\"id\\\": \\\"call_yfWnLnAObPc5xMttV0SPOCxc\\\", \\\"type\\\": \\\"tool_call\\\"}]\"}",
+                    "{\"tool\": \"Successfully transferred to okahu_demo_lg_agent_air_travel_assistant\"}"
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-01-09T22:59:14.722582Z",
+            "attributes": {
+                "response": "{\"ai\": {\"name\": \"okahu_demo_lg_tool_book_flight\", \"args\": {\"from_airport\": \"SFO\", \"to_airport\": \"BOM\"}, \"id\": \"call_2QVw2PTJ5XHimIaPRNdkWQXT\", \"type\": \"tool_call\"}}"
+            }
+        },
+        {
+            "name": "metadata",
+            "timestamp": "2026-01-09T22:59:14.722626Z",
+            "attributes": {
+                "completion_tokens": 31,
+                "prompt_tokens": 187,
+                "total_tokens": 218,
+                "finish_reason": "tool_calls",
+                "finish_type": "tool_call"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_lg_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+
+,{
+    "name": "langchain_core.tools.structured.StructuredTool._run",
+    "context": {
+        "trace_id": "2884cf1fe97c1a36481224157f7c6573",
+        "span_id": "2d84b25699395d6f",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "1beceb35d1c41735",
+    "start_time": "2026-01-09T22:59:14.725812Z",
+    "end_time": "2026-01-09T22:59:14.726088Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0b6",
+        "monocle_apptrace.language": "python",
+        "span_source": "C:\\K_Coding\\git_src_tmp\\lg-travel-agent\\.venv\\Lib\\site-packages\\langchain_core\\tools\\base.py:947",
+        "workflow.name": "okahu_demos_lg_travel_agent",
+        "entity.1.name": "okahu_demo_lg_tool_book_flight",
+        "entity.1.description": "Book a flight from one airport to another",
+        "entity.2.name": "okahu_demo_lg_agent_air_travel_assistant",
+        "entity.2.type": "agent.langgraph",
+        "span.type": "agentic.tool.invocation",
+        "entity.1.type": "tool.langgraph",
+        "scope.agentic.turn": "b416e60a1ff8ce5652cf98d8c63a652c",
+        "scope.agentic.invocation": "f722c2bceba27be55042d081dca0e5d4",
+        "entity.count": 2,
+        "span.subtype": "content_generation",
+        "inference.decision.span.id": "6c8873c44bc406d2"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-01-09T22:59:14.725932Z",
+            "attributes": {
+                "input": "{'from_airport': 'SFO', 'to_airport': 'BOM'}"
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-01-09T22:59:14.726048Z",
+            "attributes": {
+                "response": "Successfully booked a flight from SFO to BOM."
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_lg_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+
+,{
+    "name": "openai.resources.chat.completions.AsyncCompletions.create",
+    "context": {
+        "trace_id": "2884cf1fe97c1a36481224157f7c6573",
+        "span_id": "75b7fa177660f67a",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "ca3fbf620d762f1d",
+    "start_time": "2026-01-09T22:59:14.731051Z",
+    "end_time": "2026-01-09T22:59:16.198968Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0b6",
+        "monocle_apptrace.language": "python",
+        "span_source": "C:\\K_Coding\\git_src_tmp\\lg-travel-agent\\.venv\\Lib\\site-packages\\openai\\_legacy_response.py:381",
+        "workflow.name": "okahu_demos_lg_travel_agent",
+        "span.type": "inference.modelapi",
+        "scope.agentic.turn": "b416e60a1ff8ce5652cf98d8c63a652c",
+        "scope.agentic.invocation": "f722c2bceba27be55042d081dca0e5d4"
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_lg_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+
+,{
+    "name": "langchain.chat_models.base.BaseChatModel.ainvoke",
+    "context": {
+        "trace_id": "2884cf1fe97c1a36481224157f7c6573",
+        "span_id": "ca3fbf620d762f1d",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "1beceb35d1c41735",
+    "start_time": "2026-01-09T22:59:14.729754Z",
+    "end_time": "2026-01-09T22:59:16.200778Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0b6",
+        "monocle_apptrace.language": "python",
+        "span_source": "C:\\K_Coding\\git_src_tmp\\lg-travel-agent\\.venv\\Lib\\site-packages\\langchain_core\\runnables\\base.py:5570",
+        "workflow.name": "okahu_demos_lg_travel_agent",
+        "entity.1.type": "inference.openai",
+        "entity.1.provider_name": "api.openai.com",
+        "entity.1.inference_endpoint": "https://api.openai.com/v1/",
+        "entity.2.name": "gpt-4o",
+        "entity.2.type": "model.llm.gpt-4o",
+        "span.type": "inference.framework",
+        "scope.agentic.turn": "b416e60a1ff8ce5652cf98d8c63a652c",
+        "scope.agentic.invocation": "f722c2bceba27be55042d081dca0e5d4",
+        "entity.count": 2,
+        "span.subtype": "turn_end"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-01-09T22:59:14.729943Z",
+            "attributes": {
+                "input": [
+                    "{\"system\": \"You are a flight booking assistant. You only handle flight booking. Just handle that part from what the user says, ignore other parts of the requests.\"}",
+                    "{\"human\": \"Book a flight from SFO to BOM next week. Book a Marriott hotel in central Mumbai. Also what's the weather going to be in Mumbai next week?\"}",
+                    "{\"ai\": \"[{\\\"name\\\": \\\"transfer_to_okahu_demo_lg_agent_air_travel_assistant\\\", \\\"args\\\": {}, \\\"id\\\": \\\"call_yfWnLnAObPc5xMttV0SPOCxc\\\", \\\"type\\\": \\\"tool_call\\\"}]\"}",
+                    "{\"tool\": \"Successfully transferred to okahu_demo_lg_agent_air_travel_assistant\"}",
+                    "{\"ai\": \"[{\\\"name\\\": \\\"okahu_demo_lg_tool_book_flight\\\", \\\"args\\\": {\\\"from_airport\\\": \\\"SFO\\\", \\\"to_airport\\\": \\\"BOM\\\"}, \\\"id\\\": \\\"call_2QVw2PTJ5XHimIaPRNdkWQXT\\\", \\\"type\\\": \\\"tool_call\\\"}]\"}",
+                    "{\"tool\": \"Successfully booked a flight from SFO to BOM.\"}"
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-01-09T22:59:16.200673Z",
+            "attributes": {
+                "response": "{\"ai\": \"I have successfully booked your flight from SFO to BOM.\"}"
+            }
+        },
+        {
+            "name": "metadata",
+            "timestamp": "2026-01-09T22:59:16.200741Z",
+            "attributes": {
+                "completion_tokens": 13,
+                "prompt_tokens": 255,
+                "total_tokens": 268,
+                "finish_reason": "stop",
+                "finish_type": "success"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_lg_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+
+,{
+    "name": "langgraph.graph.state.CompiledStateGraph.ainvoke",
+    "context": {
+        "trace_id": "2884cf1fe97c1a36481224157f7c6573",
+        "span_id": "1beceb35d1c41735",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "b0d453c9942659af",
+    "start_time": "2026-01-09T22:59:13.924494Z",
+    "end_time": "2026-01-09T22:59:16.201585Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0b6",
+        "monocle_apptrace.language": "python",
+        "span_source": "C:\\K_Coding\\git_src_tmp\\lg-travel-agent\\.venv\\Lib\\site-packages\\langgraph_supervisor\\supervisor.py:116",
+        "workflow.name": "okahu_demos_lg_travel_agent",
+        "entity.1.type": "agent.langgraph",
+        "entity.1.name": "okahu_demo_lg_agent_air_travel_assistant",
+        "entity.1.from_agent": "okahu_demo_lg_agent_travel_supervisor",
+        "entity.1.from_agent_span_id": "1bf181da85ba649",
+        "last.inference": "ca3fbf620d762f1d:*",
+        "span.type": "agentic.invocation",
+        "scope.agentic.turn": "b416e60a1ff8ce5652cf98d8c63a652c",
+        "scope.agentic.invocation": "f722c2bceba27be55042d081dca0e5d4",
+        "entity.count": 1,
+        "span.subtype": "content_processing",
+        "monocle.last.agent.invocation.id": "",
+        "monocle.last.agent.name": "",
+        "inference.decision.span.id": "c80ba89670885d8a"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-01-09T22:59:13.924629Z",
+            "attributes": {
+                "input": [
+                    "Book a flight from SFO to BOM next week. Book a Marriott hotel in central Mumbai. Also what's the weather going to be in Mumbai next week?"
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-01-09T22:59:16.201527Z",
+            "attributes": {
+                "response": "I have successfully booked your flight from SFO to BOM."
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_lg_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+
+,{
+    "name": "openai.resources.chat.completions.AsyncCompletions.create",
+    "context": {
+        "trace_id": "2884cf1fe97c1a36481224157f7c6573",
+        "span_id": "16774465561898da",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "d327430951752da4",
+    "start_time": "2026-01-09T22:59:16.208777Z",
+    "end_time": "2026-01-09T22:59:17.315803Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0b6",
+        "monocle_apptrace.language": "python",
+        "span_source": "C:\\K_Coding\\git_src_tmp\\lg-travel-agent\\.venv\\Lib\\site-packages\\openai\\_legacy_response.py:381",
+        "workflow.name": "okahu_demos_lg_travel_agent",
+        "span.type": "inference.modelapi",
+        "scope.agentic.turn": "b416e60a1ff8ce5652cf98d8c63a652c",
+        "scope.agentic.invocation": "6237463fe5e44cf66d2dbe424a0f6916"
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_lg_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+
+,{
+    "name": "langchain.chat_models.base.BaseChatModel.ainvoke",
+    "context": {
+        "trace_id": "2884cf1fe97c1a36481224157f7c6573",
+        "span_id": "d327430951752da4",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "354a19ed27961b30",
+    "start_time": "2026-01-09T22:59:16.206885Z",
+    "end_time": "2026-01-09T22:59:17.317431Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0b6",
+        "monocle_apptrace.language": "python",
+        "span_source": "C:\\K_Coding\\git_src_tmp\\lg-travel-agent\\.venv\\Lib\\site-packages\\langchain_core\\runnables\\base.py:5570",
+        "workflow.name": "okahu_demos_lg_travel_agent",
+        "entity.1.type": "inference.openai",
+        "entity.1.provider_name": "api.openai.com",
+        "entity.1.inference_endpoint": "https://api.openai.com/v1/",
+        "entity.2.name": "gpt-4o",
+        "entity.2.type": "model.llm.gpt-4o",
+        "span.type": "inference.framework",
+        "entity.3.name": "transfer_to_okahu_demo_lg_agent_lodging_assistant",
+        "entity.3.type": "tool.function",
+        "scope.agentic.turn": "b416e60a1ff8ce5652cf98d8c63a652c",
+        "scope.agentic.invocation": "6237463fe5e44cf66d2dbe424a0f6916",
+        "entity.count": 3,
+        "span.subtype": "delegation"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-01-09T22:59:16.207200Z",
+            "attributes": {
+                "input": [
+                    "{\"system\": \"You manage a hotel booking assistant and aflight booking assistant. Assign work to them. Each assistant is skilled in their own area ONLY and cannot do other tasks. If the user asks for weather information, delegate to the weather assistant.\"}",
+                    "{\"human\": \"Book a flight from SFO to BOM next week. Book a Marriott hotel in central Mumbai. Also what's the weather going to be in Mumbai next week?\"}",
+                    "{\"ai\": \"[{\\\"name\\\": \\\"transfer_to_okahu_demo_lg_agent_air_travel_assistant\\\", \\\"args\\\": {}, \\\"id\\\": \\\"call_yfWnLnAObPc5xMttV0SPOCxc\\\", \\\"type\\\": \\\"tool_call\\\"}]\"}",
+                    "{\"tool\": \"Successfully transferred to okahu_demo_lg_agent_air_travel_assistant\"}",
+                    "{\"ai\": \"I have successfully booked your flight from SFO to BOM.\"}",
+                    "{\"ai\": \"Transferring back to okahu_demo_lg_agent_travel_supervisor\"}",
+                    "{\"tool\": \"Successfully transferred back to okahu_demo_lg_agent_travel_supervisor\"}"
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-01-09T22:59:17.317353Z",
+            "attributes": {
+                "response": "{\"ai\": {\"name\": \"transfer_to_okahu_demo_lg_agent_lodging_assistant\", \"args\": {}, \"id\": \"call_ib38H9wah76qV0RuPG4TPpsu\", \"type\": \"tool_call\"}}"
+            }
+        },
+        {
+            "name": "metadata",
+            "timestamp": "2026-01-09T22:59:17.317403Z",
+            "attributes": {
+                "completion_tokens": 21,
+                "prompt_tokens": 397,
+                "total_tokens": 418,
+                "finish_reason": "tool_calls",
+                "finish_type": "tool_call"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_lg_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+
+,{
+    "name": "langgraph.graph.state.CompiledStateGraph.ainvoke",
+    "context": {
+        "trace_id": "2884cf1fe97c1a36481224157f7c6573",
+        "span_id": "354a19ed27961b30",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "b0d453c9942659af",
+    "start_time": "2026-01-09T22:59:16.203752Z",
+    "end_time": "2026-01-09T22:59:17.322248Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0b6",
+        "monocle_apptrace.language": "python",
+        "span_source": "C:\\K_Coding\\git_src_tmp\\lg-travel-agent\\.venv\\Lib\\site-packages\\langgraph\\_internal\\_runnable.py:706",
+        "workflow.name": "okahu_demos_lg_travel_agent",
+        "entity.1.type": "agent.langgraph",
+        "entity.1.name": "okahu_demo_lg_agent_travel_supervisor",
+        "entity.1.from_agent": "okahu_demo_lg_agent_air_travel_assistant",
+        "entity.1.from_agent_span_id": "1beceb35d1c41735",
+        "last.inference": "d327430951752da4:transfer_to_okahu_demo_lg_agent_lodging_assistant",
+        "span.type": "agentic.invocation",
+        "scope.agentic.turn": "b416e60a1ff8ce5652cf98d8c63a652c",
+        "scope.agentic.invocation": "6237463fe5e44cf66d2dbe424a0f6916",
+        "entity.count": 1,
+        "span.subtype": "content_processing",
+        "monocle.last.agent.invocation.id": "",
+        "monocle.last.agent.name": "",
+        "inference.decision.span.id": "ca3fbf620d762f1d"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-01-09T22:59:16.203896Z",
+            "attributes": {
+                "input": [
+                    "Book a flight from SFO to BOM next week. Book a Marriott hotel in central Mumbai. Also what's the weather going to be in Mumbai next week?"
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-01-09T22:59:17.321511Z",
+            "attributes": {
+                "response": "Successfully transferred to okahu_demo_lg_agent_lodging_assistant"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_lg_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+
+,{
+    "name": "openai.resources.chat.completions.AsyncCompletions.create",
+    "context": {
+        "trace_id": "2884cf1fe97c1a36481224157f7c6573",
+        "span_id": "a2bf4ff1758c242b",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "a570ee9a49696f8d",
+    "start_time": "2026-01-09T22:59:17.331021Z",
+    "end_time": "2026-01-09T22:59:18.204349Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0b6",
+        "monocle_apptrace.language": "python",
+        "span_source": "C:\\K_Coding\\git_src_tmp\\lg-travel-agent\\.venv\\Lib\\site-packages\\openai\\_legacy_response.py:381",
+        "workflow.name": "okahu_demos_lg_travel_agent",
+        "span.type": "inference.modelapi",
+        "scope.agentic.turn": "b416e60a1ff8ce5652cf98d8c63a652c",
+        "scope.agentic.invocation": "62fac41cf675d17e2409e41edfa982c7"
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_lg_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+
+,{
+    "name": "langchain.chat_models.base.BaseChatModel.ainvoke",
+    "context": {
+        "trace_id": "2884cf1fe97c1a36481224157f7c6573",
+        "span_id": "a570ee9a49696f8d",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "c152b2f1257cd0b3",
+    "start_time": "2026-01-09T22:59:17.328452Z",
+    "end_time": "2026-01-09T22:59:18.206871Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0b6",
+        "monocle_apptrace.language": "python",
+        "span_source": "C:\\K_Coding\\git_src_tmp\\lg-travel-agent\\.venv\\Lib\\site-packages\\langchain_core\\runnables\\base.py:5570",
+        "workflow.name": "okahu_demos_lg_travel_agent",
+        "entity.1.type": "inference.openai",
+        "entity.1.provider_name": "api.openai.com",
+        "entity.1.inference_endpoint": "https://api.openai.com/v1/",
+        "entity.2.name": "gpt-4o",
+        "entity.2.type": "model.llm.gpt-4o",
+        "span.type": "inference.framework",
+        "entity.3.name": "okahu_demo_lg_tool_book_hotel",
+        "entity.3.type": "tool.function",
+        "scope.agentic.turn": "b416e60a1ff8ce5652cf98d8c63a652c",
+        "scope.agentic.invocation": "62fac41cf675d17e2409e41edfa982c7",
+        "entity.count": 3,
+        "span.subtype": "tool_call"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-01-09T22:59:17.328703Z",
+            "attributes": {
+                "input": [
+                    "{\"system\": \"You are a hotel booking assistant. You only handle hotel booking. Book hotel if the user explicitly asks, just handle that part from what the user says, ignore other parts of the requests.\"}",
+                    "{\"human\": \"Book a flight from SFO to BOM next week. Book a Marriott hotel in central Mumbai. Also what's the weather going to be in Mumbai next week?\"}",
+                    "{\"ai\": \"[{\\\"name\\\": \\\"transfer_to_okahu_demo_lg_agent_air_travel_assistant\\\", \\\"args\\\": {}, \\\"id\\\": \\\"call_yfWnLnAObPc5xMttV0SPOCxc\\\", \\\"type\\\": \\\"tool_call\\\"}]\"}",
+                    "{\"tool\": \"Successfully transferred to okahu_demo_lg_agent_air_travel_assistant\"}",
+                    "{\"ai\": \"I have successfully booked your flight from SFO to BOM.\"}",
+                    "{\"ai\": \"Transferring back to okahu_demo_lg_agent_travel_supervisor\"}",
+                    "{\"tool\": \"Successfully transferred back to okahu_demo_lg_agent_travel_supervisor\"}",
+                    "{\"ai\": \"[{\\\"name\\\": \\\"transfer_to_okahu_demo_lg_agent_lodging_assistant\\\", \\\"args\\\": {}, \\\"id\\\": \\\"call_ib38H9wah76qV0RuPG4TPpsu\\\", \\\"type\\\": \\\"tool_call\\\"}]\"}",
+                    "{\"tool\": \"Successfully transferred to okahu_demo_lg_agent_lodging_assistant\"}"
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-01-09T22:59:18.206750Z",
+            "attributes": {
+                "response": "{\"ai\": {\"name\": \"okahu_demo_lg_tool_book_hotel\", \"args\": {\"hotel_name\": \"Marriott hotel in central Mumbai\"}, \"id\": \"call_uKOMXfEX3v5Z9ZOXQyJJFq0V\", \"type\": \"tool_call\"}}"
+            }
+        },
+        {
+            "name": "metadata",
+            "timestamp": "2026-01-09T22:59:18.206828Z",
+            "attributes": {
+                "completion_tokens": 27,
+                "prompt_tokens": 376,
+                "total_tokens": 403,
+                "finish_reason": "tool_calls",
+                "finish_type": "tool_call"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_lg_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+
+,{
+    "name": "langchain_core.tools.structured.StructuredTool._run",
+    "context": {
+        "trace_id": "2884cf1fe97c1a36481224157f7c6573",
+        "span_id": "99c70638b8a57c8b",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "c152b2f1257cd0b3",
+    "start_time": "2026-01-09T22:59:18.210914Z",
+    "end_time": "2026-01-09T22:59:18.211409Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0b6",
+        "monocle_apptrace.language": "python",
+        "span_source": "C:\\K_Coding\\git_src_tmp\\lg-travel-agent\\.venv\\Lib\\site-packages\\langchain_core\\tools\\base.py:947",
+        "workflow.name": "okahu_demos_lg_travel_agent",
+        "entity.1.name": "okahu_demo_lg_tool_book_hotel",
+        "entity.1.description": "Book a hotel for a stay",
+        "entity.2.name": "okahu_demo_lg_agent_lodging_assistant",
+        "entity.2.type": "agent.langgraph",
+        "span.type": "agentic.tool.invocation",
+        "entity.1.type": "tool.langgraph",
+        "scope.agentic.turn": "b416e60a1ff8ce5652cf98d8c63a652c",
+        "scope.agentic.invocation": "62fac41cf675d17e2409e41edfa982c7",
+        "entity.count": 2,
+        "span.subtype": "content_generation",
+        "inference.decision.span.id": "a570ee9a49696f8d"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-01-09T22:59:18.211157Z",
+            "attributes": {
+                "input": "{'hotel_name': 'Marriott hotel in central Mumbai'}"
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-01-09T22:59:18.211346Z",
+            "attributes": {
+                "response": "Successfully booked a stay at Marriott hotel in central Mumbai."
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_lg_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+
+,{
+    "name": "openai.resources.chat.completions.AsyncCompletions.create",
+    "context": {
+        "trace_id": "2884cf1fe97c1a36481224157f7c6573",
+        "span_id": "a97940b132b55206",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "8bc5658d2388b84d",
+    "start_time": "2026-01-09T22:59:18.220572Z",
+    "end_time": "2026-01-09T22:59:19.020596Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0b6",
+        "monocle_apptrace.language": "python",
+        "span_source": "C:\\K_Coding\\git_src_tmp\\lg-travel-agent\\.venv\\Lib\\site-packages\\openai\\_legacy_response.py:381",
+        "workflow.name": "okahu_demos_lg_travel_agent",
+        "span.type": "inference.modelapi",
+        "scope.agentic.turn": "b416e60a1ff8ce5652cf98d8c63a652c",
+        "scope.agentic.invocation": "62fac41cf675d17e2409e41edfa982c7"
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_lg_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+
+,{
+    "name": "langchain.chat_models.base.BaseChatModel.ainvoke",
+    "context": {
+        "trace_id": "2884cf1fe97c1a36481224157f7c6573",
+        "span_id": "8bc5658d2388b84d",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "c152b2f1257cd0b3",
+    "start_time": "2026-01-09T22:59:18.217876Z",
+    "end_time": "2026-01-09T22:59:19.022479Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0b6",
+        "monocle_apptrace.language": "python",
+        "span_source": "C:\\K_Coding\\git_src_tmp\\lg-travel-agent\\.venv\\Lib\\site-packages\\langchain_core\\runnables\\base.py:5570",
+        "workflow.name": "okahu_demos_lg_travel_agent",
+        "entity.1.type": "inference.openai",
+        "entity.1.provider_name": "api.openai.com",
+        "entity.1.inference_endpoint": "https://api.openai.com/v1/",
+        "entity.2.name": "gpt-4o",
+        "entity.2.type": "model.llm.gpt-4o",
+        "span.type": "inference.framework",
+        "scope.agentic.turn": "b416e60a1ff8ce5652cf98d8c63a652c",
+        "scope.agentic.invocation": "62fac41cf675d17e2409e41edfa982c7",
+        "entity.count": 2,
+        "span.subtype": "turn_end"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-01-09T22:59:18.218259Z",
+            "attributes": {
+                "input": [
+                    "{\"system\": \"You are a hotel booking assistant. You only handle hotel booking. Book hotel if the user explicitly asks, just handle that part from what the user says, ignore other parts of the requests.\"}",
+                    "{\"human\": \"Book a flight from SFO to BOM next week. Book a Marriott hotel in central Mumbai. Also what's the weather going to be in Mumbai next week?\"}",
+                    "{\"ai\": \"[{\\\"name\\\": \\\"transfer_to_okahu_demo_lg_agent_air_travel_assistant\\\", \\\"args\\\": {}, \\\"id\\\": \\\"call_yfWnLnAObPc5xMttV0SPOCxc\\\", \\\"type\\\": \\\"tool_call\\\"}]\"}",
+                    "{\"tool\": \"Successfully transferred to okahu_demo_lg_agent_air_travel_assistant\"}",
+                    "{\"ai\": \"I have successfully booked your flight from SFO to BOM.\"}",
+                    "{\"ai\": \"Transferring back to okahu_demo_lg_agent_travel_supervisor\"}",
+                    "{\"tool\": \"Successfully transferred back to okahu_demo_lg_agent_travel_supervisor\"}",
+                    "{\"ai\": \"[{\\\"name\\\": \\\"transfer_to_okahu_demo_lg_agent_lodging_assistant\\\", \\\"args\\\": {}, \\\"id\\\": \\\"call_ib38H9wah76qV0RuPG4TPpsu\\\", \\\"type\\\": \\\"tool_call\\\"}]\"}",
+                    "{\"tool\": \"Successfully transferred to okahu_demo_lg_agent_lodging_assistant\"}",
+                    "{\"ai\": \"[{\\\"name\\\": \\\"okahu_demo_lg_tool_book_hotel\\\", \\\"args\\\": {\\\"hotel_name\\\": \\\"Marriott hotel in central Mumbai\\\"}, \\\"id\\\": \\\"call_uKOMXfEX3v5Z9ZOXQyJJFq0V\\\", \\\"type\\\": \\\"tool_call\\\"}]\"}",
+                    "{\"tool\": \"Successfully booked a stay at Marriott hotel in central Mumbai.\"}"
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-01-09T22:59:19.022365Z",
+            "attributes": {
+                "response": "{\"ai\": \"I have successfully booked your stay at the Marriott hotel in central Mumbai.\"}"
+            }
+        },
+        {
+            "name": "metadata",
+            "timestamp": "2026-01-09T22:59:19.022431Z",
+            "attributes": {
+                "completion_tokens": 15,
+                "prompt_tokens": 441,
+                "total_tokens": 456,
+                "finish_reason": "stop",
+                "finish_type": "success"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_lg_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+
+,{
+    "name": "langgraph.graph.state.CompiledStateGraph.ainvoke",
+    "context": {
+        "trace_id": "2884cf1fe97c1a36481224157f7c6573",
+        "span_id": "c152b2f1257cd0b3",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "b0d453c9942659af",
+    "start_time": "2026-01-09T22:59:17.324057Z",
+    "end_time": "2026-01-09T22:59:19.023416Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0b6",
+        "monocle_apptrace.language": "python",
+        "span_source": "C:\\K_Coding\\git_src_tmp\\lg-travel-agent\\.venv\\Lib\\site-packages\\langgraph_supervisor\\supervisor.py:116",
+        "workflow.name": "okahu_demos_lg_travel_agent",
+        "entity.1.type": "agent.langgraph",
+        "entity.1.name": "okahu_demo_lg_agent_lodging_assistant",
+        "entity.1.from_agent": "okahu_demo_lg_agent_travel_supervisor",
+        "entity.1.from_agent_span_id": "354a19ed27961b30",
+        "last.inference": "8bc5658d2388b84d:*",
+        "span.type": "agentic.invocation",
+        "scope.agentic.turn": "b416e60a1ff8ce5652cf98d8c63a652c",
+        "scope.agentic.invocation": "62fac41cf675d17e2409e41edfa982c7",
+        "entity.count": 1,
+        "span.subtype": "content_processing",
+        "monocle.last.agent.invocation.id": "",
+        "monocle.last.agent.name": "",
+        "inference.decision.span.id": "d327430951752da4"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-01-09T22:59:17.324185Z",
+            "attributes": {
+                "input": [
+                    "Book a flight from SFO to BOM next week. Book a Marriott hotel in central Mumbai. Also what's the weather going to be in Mumbai next week?"
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-01-09T22:59:19.023358Z",
+            "attributes": {
+                "response": "I have successfully booked your stay at the Marriott hotel in central Mumbai."
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_lg_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+
+,{
+    "name": "openai.resources.chat.completions.AsyncCompletions.create",
+    "context": {
+        "trace_id": "2884cf1fe97c1a36481224157f7c6573",
+        "span_id": "7ef51e5188961f98",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "5f99547b64a6055e",
+    "start_time": "2026-01-09T22:59:19.032224Z",
+    "end_time": "2026-01-09T22:59:19.839743Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0b6",
+        "monocle_apptrace.language": "python",
+        "span_source": "C:\\K_Coding\\git_src_tmp\\lg-travel-agent\\.venv\\Lib\\site-packages\\openai\\_legacy_response.py:381",
+        "workflow.name": "okahu_demos_lg_travel_agent",
+        "span.type": "inference.modelapi",
+        "scope.agentic.turn": "b416e60a1ff8ce5652cf98d8c63a652c",
+        "scope.agentic.invocation": "f08eebc1758bba066e05e2f53d404d1c"
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_lg_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+
+,{
+    "name": "langchain.chat_models.base.BaseChatModel.ainvoke",
+    "context": {
+        "trace_id": "2884cf1fe97c1a36481224157f7c6573",
+        "span_id": "5f99547b64a6055e",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "971d9c72707103a0",
+    "start_time": "2026-01-09T22:59:19.029966Z",
+    "end_time": "2026-01-09T22:59:19.841685Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0b6",
+        "monocle_apptrace.language": "python",
+        "span_source": "C:\\K_Coding\\git_src_tmp\\lg-travel-agent\\.venv\\Lib\\site-packages\\langchain_core\\runnables\\base.py:5570",
+        "workflow.name": "okahu_demos_lg_travel_agent",
+        "entity.1.type": "inference.openai",
+        "entity.1.provider_name": "api.openai.com",
+        "entity.1.inference_endpoint": "https://api.openai.com/v1/",
+        "entity.2.name": "gpt-4o",
+        "entity.2.type": "model.llm.gpt-4o",
+        "span.type": "inference.framework",
+        "entity.3.name": "transfer_to_okahu_demo_lg_agent_weather_assistant",
+        "entity.3.type": "tool.function",
+        "scope.agentic.turn": "b416e60a1ff8ce5652cf98d8c63a652c",
+        "scope.agentic.invocation": "f08eebc1758bba066e05e2f53d404d1c",
+        "entity.count": 3,
+        "span.subtype": "delegation"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-01-09T22:59:19.030363Z",
+            "attributes": {
+                "input": [
+                    "{\"system\": \"You manage a hotel booking assistant and aflight booking assistant. Assign work to them. Each assistant is skilled in their own area ONLY and cannot do other tasks. If the user asks for weather information, delegate to the weather assistant.\"}",
+                    "{\"human\": \"Book a flight from SFO to BOM next week. Book a Marriott hotel in central Mumbai. Also what's the weather going to be in Mumbai next week?\"}",
+                    "{\"ai\": \"[{\\\"name\\\": \\\"transfer_to_okahu_demo_lg_agent_air_travel_assistant\\\", \\\"args\\\": {}, \\\"id\\\": \\\"call_yfWnLnAObPc5xMttV0SPOCxc\\\", \\\"type\\\": \\\"tool_call\\\"}]\"}",
+                    "{\"tool\": \"Successfully transferred to okahu_demo_lg_agent_air_travel_assistant\"}",
+                    "{\"ai\": \"I have successfully booked your flight from SFO to BOM.\"}",
+                    "{\"ai\": \"Transferring back to okahu_demo_lg_agent_travel_supervisor\"}",
+                    "{\"tool\": \"Successfully transferred back to okahu_demo_lg_agent_travel_supervisor\"}",
+                    "{\"ai\": \"[{\\\"name\\\": \\\"transfer_to_okahu_demo_lg_agent_lodging_assistant\\\", \\\"args\\\": {}, \\\"id\\\": \\\"call_ib38H9wah76qV0RuPG4TPpsu\\\", \\\"type\\\": \\\"tool_call\\\"}]\"}",
+                    "{\"tool\": \"Successfully transferred to okahu_demo_lg_agent_lodging_assistant\"}",
+                    "{\"ai\": \"I have successfully booked your stay at the Marriott hotel in central Mumbai.\"}",
+                    "{\"ai\": \"Transferring back to okahu_demo_lg_agent_travel_supervisor\"}",
+                    "{\"tool\": \"Successfully transferred back to okahu_demo_lg_agent_travel_supervisor\"}"
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-01-09T22:59:19.841619Z",
+            "attributes": {
+                "response": "{\"ai\": {\"name\": \"transfer_to_okahu_demo_lg_agent_weather_assistant\", \"args\": {}, \"id\": \"call_y820ibpZuVo83xgraRVYL395\", \"type\": \"tool_call\"}}"
+            }
+        },
+        {
+            "name": "metadata",
+            "timestamp": "2026-01-09T22:59:19.841661Z",
+            "attributes": {
+                "completion_tokens": 19,
+                "prompt_tokens": 589,
+                "total_tokens": 608,
+                "finish_reason": "tool_calls",
+                "finish_type": "tool_call"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_lg_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+
+,{
+    "name": "langgraph.graph.state.CompiledStateGraph.ainvoke",
+    "context": {
+        "trace_id": "2884cf1fe97c1a36481224157f7c6573",
+        "span_id": "971d9c72707103a0",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "b0d453c9942659af",
+    "start_time": "2026-01-09T22:59:19.026058Z",
+    "end_time": "2026-01-09T22:59:19.845347Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0b6",
+        "monocle_apptrace.language": "python",
+        "span_source": "C:\\K_Coding\\git_src_tmp\\lg-travel-agent\\.venv\\Lib\\site-packages\\langgraph\\_internal\\_runnable.py:706",
+        "workflow.name": "okahu_demos_lg_travel_agent",
+        "entity.1.type": "agent.langgraph",
+        "entity.1.name": "okahu_demo_lg_agent_travel_supervisor",
+        "entity.1.from_agent": "okahu_demo_lg_agent_lodging_assistant",
+        "entity.1.from_agent_span_id": "c152b2f1257cd0b3",
+        "last.inference": "5f99547b64a6055e:transfer_to_okahu_demo_lg_agent_weather_assistant",
+        "span.type": "agentic.invocation",
+        "scope.agentic.turn": "b416e60a1ff8ce5652cf98d8c63a652c",
+        "scope.agentic.invocation": "f08eebc1758bba066e05e2f53d404d1c",
+        "entity.count": 1,
+        "span.subtype": "content_processing",
+        "monocle.last.agent.invocation.id": "",
+        "monocle.last.agent.name": "",
+        "inference.decision.span.id": "8bc5658d2388b84d"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-01-09T22:59:19.026231Z",
+            "attributes": {
+                "input": [
+                    "Book a flight from SFO to BOM next week. Book a Marriott hotel in central Mumbai. Also what's the weather going to be in Mumbai next week?"
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-01-09T22:59:19.844746Z",
+            "attributes": {
+                "response": "Successfully transferred to okahu_demo_lg_agent_weather_assistant"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_lg_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+
+,{
+    "name": "openai.resources.chat.completions.AsyncCompletions.create",
+    "context": {
+        "trace_id": "2884cf1fe97c1a36481224157f7c6573",
+        "span_id": "91cf2476a1c19722",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "7df480be70bd0edb",
+    "start_time": "2026-01-09T22:59:19.851177Z",
+    "end_time": "2026-01-09T22:59:21.273487Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0b6",
+        "monocle_apptrace.language": "python",
+        "span_source": "C:\\K_Coding\\git_src_tmp\\lg-travel-agent\\.venv\\Lib\\site-packages\\openai\\_legacy_response.py:381",
+        "workflow.name": "okahu_demos_lg_travel_agent",
+        "span.type": "inference.modelapi",
+        "scope.agentic.turn": "b416e60a1ff8ce5652cf98d8c63a652c",
+        "scope.agentic.invocation": "3cfb2d108bc1fbfd10ed5228c0472be"
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_lg_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+
+,{
+    "name": "langchain.chat_models.base.BaseChatModel.ainvoke",
+    "context": {
+        "trace_id": "2884cf1fe97c1a36481224157f7c6573",
+        "span_id": "7df480be70bd0edb",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "f27c5833ebc2c518",
+    "start_time": "2026-01-09T22:59:19.848851Z",
+    "end_time": "2026-01-09T22:59:21.275343Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0b6",
+        "monocle_apptrace.language": "python",
+        "span_source": "C:\\K_Coding\\git_src_tmp\\lg-travel-agent\\.venv\\Lib\\site-packages\\langchain_core\\runnables\\base.py:5570",
+        "workflow.name": "okahu_demos_lg_travel_agent",
+        "entity.1.type": "inference.openai",
+        "entity.1.provider_name": "api.openai.com",
+        "entity.1.inference_endpoint": "https://api.openai.com/v1/",
+        "entity.2.name": "gpt-4o",
+        "entity.2.type": "model.llm.gpt-4o",
+        "span.type": "inference.framework",
+        "entity.3.name": "demo_get_weather",
+        "entity.3.type": "tool.function",
+        "scope.agentic.turn": "b416e60a1ff8ce5652cf98d8c63a652c",
+        "scope.agentic.invocation": "3cfb2d108bc1fbfd10ed5228c0472be",
+        "entity.count": 3,
+        "span.subtype": "tool_call"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-01-09T22:59:19.849166Z",
+            "attributes": {
+                "input": [
+                    "{\"system\": \"You are a weather information assistant. Please use the tool available to you for checking weather. Extract city name from the user query and pass it to the weather tool, and ignore other parts of the requests.\"}",
+                    "{\"human\": \"Book a flight from SFO to BOM next week. Book a Marriott hotel in central Mumbai. Also what's the weather going to be in Mumbai next week?\"}",
+                    "{\"ai\": \"[{\\\"name\\\": \\\"transfer_to_okahu_demo_lg_agent_air_travel_assistant\\\", \\\"args\\\": {}, \\\"id\\\": \\\"call_yfWnLnAObPc5xMttV0SPOCxc\\\", \\\"type\\\": \\\"tool_call\\\"}]\"}",
+                    "{\"tool\": \"Successfully transferred to okahu_demo_lg_agent_air_travel_assistant\"}",
+                    "{\"ai\": \"I have successfully booked your flight from SFO to BOM.\"}",
+                    "{\"ai\": \"Transferring back to okahu_demo_lg_agent_travel_supervisor\"}",
+                    "{\"tool\": \"Successfully transferred back to okahu_demo_lg_agent_travel_supervisor\"}",
+                    "{\"ai\": \"[{\\\"name\\\": \\\"transfer_to_okahu_demo_lg_agent_lodging_assistant\\\", \\\"args\\\": {}, \\\"id\\\": \\\"call_ib38H9wah76qV0RuPG4TPpsu\\\", \\\"type\\\": \\\"tool_call\\\"}]\"}",
+                    "{\"tool\": \"Successfully transferred to okahu_demo_lg_agent_lodging_assistant\"}",
+                    "{\"ai\": \"I have successfully booked your stay at the Marriott hotel in central Mumbai.\"}",
+                    "{\"ai\": \"Transferring back to okahu_demo_lg_agent_travel_supervisor\"}",
+                    "{\"tool\": \"Successfully transferred back to okahu_demo_lg_agent_travel_supervisor\"}",
+                    "{\"ai\": \"[{\\\"name\\\": \\\"transfer_to_okahu_demo_lg_agent_weather_assistant\\\", \\\"args\\\": {}, \\\"id\\\": \\\"call_y820ibpZuVo83xgraRVYL395\\\", \\\"type\\\": \\\"tool_call\\\"}]\"}",
+                    "{\"tool\": \"Successfully transferred to okahu_demo_lg_agent_weather_assistant\"}"
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-01-09T22:59:21.275275Z",
+            "attributes": {
+                "response": "{\"ai\": {\"name\": \"demo_get_weather\", \"args\": {\"city\": \"Mumbai\"}, \"id\": \"call_quI357x8eAhM2LRWrCV7wrcW\", \"type\": \"tool_call\"}}"
+            }
+        },
+        {
+            "name": "metadata",
+            "timestamp": "2026-01-09T22:59:21.275320Z",
+            "attributes": {
+                "completion_tokens": 15,
+                "prompt_tokens": 603,
+                "total_tokens": 618,
+                "finish_reason": "tool_calls",
+                "finish_type": "tool_call"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_lg_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+
+,{
+    "name": "mcp.shared.session.BaseSession.send_request",
+    "context": {
+        "trace_id": "2884cf1fe97c1a36481224157f7c6573",
+        "span_id": "d6942bc2be5a3114",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "b7a01f0b0e54d502",
+    "start_time": "2026-01-09T22:59:21.990761Z",
+    "end_time": "2026-01-09T22:59:22.537688Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0b6",
+        "monocle_apptrace.language": "python",
+        "span_source": "C:\\K_Coding\\git_src_tmp\\lg-travel-agent\\.venv\\Lib\\site-packages\\mcp\\client\\session.py:383",
+        "workflow.name": "okahu_demos_lg_travel_agent",
+        "entity.1.name": "demo_get_weather",
+        "entity.1.type": "mcp.server",
+        "entity.1.url": "http://localhost:8007/weather/mcp/",
+        "span.type": "agentic.mcp.invocation",
+        "scope.agentic.turn": "b416e60a1ff8ce5652cf98d8c63a652c",
+        "scope.agentic.invocation": "3cfb2d108bc1fbfd10ed5228c0472be",
+        "entity.count": 1,
+        "span.subtype": "routing"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-01-09T22:59:21.990939Z",
+            "attributes": {
+                "input": [
+                    "{\"city\": \"Mumbai\"}"
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-01-09T22:59:22.537646Z",
+            "attributes": {
+                "output": "{\n  \"temperature\": 85\n}"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_lg_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+
+,{
+    "name": "langchain_core.tools.structured.StructuredTool._arun",
+    "context": {
+        "trace_id": "2884cf1fe97c1a36481224157f7c6573",
+        "span_id": "b7a01f0b0e54d502",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "f27c5833ebc2c518",
+    "start_time": "2026-01-09T22:59:21.278618Z",
+    "end_time": "2026-01-09T22:59:22.809112Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0b6",
+        "monocle_apptrace.language": "python",
+        "span_source": "C:\\K_Coding\\git_src_tmp\\lg-travel-agent\\.venv\\Lib\\site-packages\\langchain_core\\tools\\base.py:1076",
+        "workflow.name": "okahu_demos_lg_travel_agent",
+        "entity.1.name": "demo_get_weather",
+        "entity.1.description": "\nGet mock weather information for a specified city.\n\nArgs:\n    city: Name of the city to get weather for (e.g., \"London\", \"New York\", \"Tokyo\")\n\nReturns:\n    Dictionary containing mock weather information with random temperature between 40-100.\n",
+        "entity.2.name": "okahu_demo_lg_agent_weather_assistant",
+        "entity.2.type": "agent.langgraph",
+        "is_mcp": true,
+        "span.type": "agentic.tool.invocation",
+        "entity.1.type": "tool.mcp",
+        "scope.agentic.turn": "b416e60a1ff8ce5652cf98d8c63a652c",
+        "scope.agentic.invocation": "3cfb2d108bc1fbfd10ed5228c0472be",
+        "entity.count": 2,
+        "span.subtype": "content_generation",
+        "inference.decision.span.id": "7df480be70bd0edb"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-01-09T22:59:21.278723Z",
+            "attributes": {
+                "input": "{'city': 'Mumbai'}"
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-01-09T22:59:22.809060Z",
+            "attributes": {
+                "response": "{'temperature': 85}"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_lg_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+
+,{
+    "name": "openai.resources.chat.completions.AsyncCompletions.create",
+    "context": {
+        "trace_id": "2884cf1fe97c1a36481224157f7c6573",
+        "span_id": "6b067e1358e32cda",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "42bc6faf407718cf",
+    "start_time": "2026-01-09T22:59:22.813245Z",
+    "end_time": "2026-01-09T22:59:23.304296Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0b6",
+        "monocle_apptrace.language": "python",
+        "span_source": "C:\\K_Coding\\git_src_tmp\\lg-travel-agent\\.venv\\Lib\\site-packages\\openai\\_legacy_response.py:381",
+        "workflow.name": "okahu_demos_lg_travel_agent",
+        "span.type": "inference.modelapi",
+        "scope.agentic.turn": "b416e60a1ff8ce5652cf98d8c63a652c",
+        "scope.agentic.invocation": "3cfb2d108bc1fbfd10ed5228c0472be"
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_lg_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+
+,{
+    "name": "langchain.chat_models.base.BaseChatModel.ainvoke",
+    "context": {
+        "trace_id": "2884cf1fe97c1a36481224157f7c6573",
+        "span_id": "42bc6faf407718cf",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "f27c5833ebc2c518",
+    "start_time": "2026-01-09T22:59:22.811455Z",
+    "end_time": "2026-01-09T22:59:23.306128Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0b6",
+        "monocle_apptrace.language": "python",
+        "span_source": "C:\\K_Coding\\git_src_tmp\\lg-travel-agent\\.venv\\Lib\\site-packages\\langchain_core\\runnables\\base.py:5570",
+        "workflow.name": "okahu_demos_lg_travel_agent",
+        "entity.1.type": "inference.openai",
+        "entity.1.provider_name": "api.openai.com",
+        "entity.1.inference_endpoint": "https://api.openai.com/v1/",
+        "entity.2.name": "gpt-4o",
+        "entity.2.type": "model.llm.gpt-4o",
+        "span.type": "inference.framework",
+        "scope.agentic.turn": "b416e60a1ff8ce5652cf98d8c63a652c",
+        "scope.agentic.invocation": "3cfb2d108bc1fbfd10ed5228c0472be",
+        "entity.count": 2,
+        "span.subtype": "turn_end"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-01-09T22:59:22.811713Z",
+            "attributes": {
+                "input": [
+                    "{\"system\": \"You are a weather information assistant. Please use the tool available to you for checking weather. Extract city name from the user query and pass it to the weather tool, and ignore other parts of the requests.\"}",
+                    "{\"human\": \"Book a flight from SFO to BOM next week. Book a Marriott hotel in central Mumbai. Also what's the weather going to be in Mumbai next week?\"}",
+                    "{\"ai\": \"[{\\\"name\\\": \\\"transfer_to_okahu_demo_lg_agent_air_travel_assistant\\\", \\\"args\\\": {}, \\\"id\\\": \\\"call_yfWnLnAObPc5xMttV0SPOCxc\\\", \\\"type\\\": \\\"tool_call\\\"}]\"}",
+                    "{\"tool\": \"Successfully transferred to okahu_demo_lg_agent_air_travel_assistant\"}",
+                    "{\"ai\": \"I have successfully booked your flight from SFO to BOM.\"}",
+                    "{\"ai\": \"Transferring back to okahu_demo_lg_agent_travel_supervisor\"}",
+                    "{\"tool\": \"Successfully transferred back to okahu_demo_lg_agent_travel_supervisor\"}",
+                    "{\"ai\": \"[{\\\"name\\\": \\\"transfer_to_okahu_demo_lg_agent_lodging_assistant\\\", \\\"args\\\": {}, \\\"id\\\": \\\"call_ib38H9wah76qV0RuPG4TPpsu\\\", \\\"type\\\": \\\"tool_call\\\"}]\"}",
+                    "{\"tool\": \"Successfully transferred to okahu_demo_lg_agent_lodging_assistant\"}",
+                    "{\"ai\": \"I have successfully booked your stay at the Marriott hotel in central Mumbai.\"}",
+                    "{\"ai\": \"Transferring back to okahu_demo_lg_agent_travel_supervisor\"}",
+                    "{\"tool\": \"Successfully transferred back to okahu_demo_lg_agent_travel_supervisor\"}",
+                    "{\"ai\": \"[{\\\"name\\\": \\\"transfer_to_okahu_demo_lg_agent_weather_assistant\\\", \\\"args\\\": {}, \\\"id\\\": \\\"call_y820ibpZuVo83xgraRVYL395\\\", \\\"type\\\": \\\"tool_call\\\"}]\"}",
+                    "{\"tool\": \"Successfully transferred to okahu_demo_lg_agent_weather_assistant\"}",
+                    "{\"ai\": \"[{\\\"name\\\": \\\"demo_get_weather\\\", \\\"args\\\": {\\\"city\\\": \\\"Mumbai\\\"}, \\\"id\\\": \\\"call_quI357x8eAhM2LRWrCV7wrcW\\\", \\\"type\\\": \\\"tool_call\\\"}]\"}",
+                    "{\"tool\": [{\"type\": \"text\", \"text\": \"{\\n  \\\"temperature\\\": 85\\n}\", \"id\": \"lc_1e215f1f-cf94-44d9-a5f3-8bb942550d9a\"}]}"
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-01-09T22:59:23.306058Z",
+            "attributes": {
+                "response": "{\"ai\": \"The weather in Mumbai next week is expected to be around 85\\u00b0F.\"}"
+            }
+        },
+        {
+            "name": "metadata",
+            "timestamp": "2026-01-09T22:59:23.306102Z",
+            "attributes": {
+                "completion_tokens": 16,
+                "prompt_tokens": 646,
+                "total_tokens": 662,
+                "finish_reason": "stop",
+                "finish_type": "success"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_lg_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+
+,{
+    "name": "langgraph.graph.state.CompiledStateGraph.ainvoke",
+    "context": {
+        "trace_id": "2884cf1fe97c1a36481224157f7c6573",
+        "span_id": "f27c5833ebc2c518",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "b0d453c9942659af",
+    "start_time": "2026-01-09T22:59:19.846673Z",
+    "end_time": "2026-01-09T22:59:23.306810Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0b6",
+        "monocle_apptrace.language": "python",
+        "span_source": "C:\\K_Coding\\git_src_tmp\\lg-travel-agent\\.venv\\Lib\\site-packages\\langgraph_supervisor\\supervisor.py:116",
+        "workflow.name": "okahu_demos_lg_travel_agent",
+        "entity.1.type": "agent.langgraph",
+        "entity.1.name": "okahu_demo_lg_agent_weather_assistant",
+        "entity.1.from_agent": "okahu_demo_lg_agent_travel_supervisor",
+        "entity.1.from_agent_span_id": "971d9c72707103a0",
+        "last.inference": "42bc6faf407718cf:*",
+        "span.type": "agentic.invocation",
+        "scope.agentic.turn": "b416e60a1ff8ce5652cf98d8c63a652c",
+        "scope.agentic.invocation": "3cfb2d108bc1fbfd10ed5228c0472be",
+        "entity.count": 1,
+        "span.subtype": "content_processing",
+        "monocle.last.agent.invocation.id": "",
+        "monocle.last.agent.name": "",
+        "inference.decision.span.id": "5f99547b64a6055e"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-01-09T22:59:19.846776Z",
+            "attributes": {
+                "input": [
+                    "Book a flight from SFO to BOM next week. Book a Marriott hotel in central Mumbai. Also what's the weather going to be in Mumbai next week?"
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-01-09T22:59:23.306770Z",
+            "attributes": {
+                "response": "The weather in Mumbai next week is expected to be around 85\u00b0F."
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_lg_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+
+,{
+    "name": "openai.resources.chat.completions.AsyncCompletions.create",
+    "context": {
+        "trace_id": "2884cf1fe97c1a36481224157f7c6573",
+        "span_id": "fb146cd7d7dbc25c",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "5f02265f68d7c5de",
+    "start_time": "2026-01-09T22:59:23.311604Z",
+    "end_time": "2026-01-09T22:59:27.621603Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0b6",
+        "monocle_apptrace.language": "python",
+        "span_source": "C:\\K_Coding\\git_src_tmp\\lg-travel-agent\\.venv\\Lib\\site-packages\\openai\\_legacy_response.py:381",
+        "workflow.name": "okahu_demos_lg_travel_agent",
+        "span.type": "inference.modelapi",
+        "scope.agentic.turn": "b416e60a1ff8ce5652cf98d8c63a652c",
+        "scope.agentic.invocation": "5791854a85cdefe73232117dbb4e0dee"
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_lg_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+
+,{
+    "name": "langchain.chat_models.base.BaseChatModel.ainvoke",
+    "context": {
+        "trace_id": "2884cf1fe97c1a36481224157f7c6573",
+        "span_id": "5f02265f68d7c5de",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "bd7caa9cee5bb425",
+    "start_time": "2026-01-09T22:59:23.310337Z",
+    "end_time": "2026-01-09T22:59:27.623006Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0b6",
+        "monocle_apptrace.language": "python",
+        "span_source": "C:\\K_Coding\\git_src_tmp\\lg-travel-agent\\.venv\\Lib\\site-packages\\langchain_core\\runnables\\base.py:5570",
+        "workflow.name": "okahu_demos_lg_travel_agent",
+        "entity.1.type": "inference.openai",
+        "entity.1.provider_name": "api.openai.com",
+        "entity.1.inference_endpoint": "https://api.openai.com/v1/",
+        "entity.2.name": "gpt-4o",
+        "entity.2.type": "model.llm.gpt-4o",
+        "span.type": "inference.framework",
+        "scope.agentic.turn": "b416e60a1ff8ce5652cf98d8c63a652c",
+        "scope.agentic.invocation": "5791854a85cdefe73232117dbb4e0dee",
+        "entity.count": 2,
+        "span.subtype": "turn_end"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-01-09T22:59:23.310539Z",
+            "attributes": {
+                "input": [
+                    "{\"system\": \"You manage a hotel booking assistant and aflight booking assistant. Assign work to them. Each assistant is skilled in their own area ONLY and cannot do other tasks. If the user asks for weather information, delegate to the weather assistant.\"}",
+                    "{\"human\": \"Book a flight from SFO to BOM next week. Book a Marriott hotel in central Mumbai. Also what's the weather going to be in Mumbai next week?\"}",
+                    "{\"ai\": \"[{\\\"name\\\": \\\"transfer_to_okahu_demo_lg_agent_air_travel_assistant\\\", \\\"args\\\": {}, \\\"id\\\": \\\"call_yfWnLnAObPc5xMttV0SPOCxc\\\", \\\"type\\\": \\\"tool_call\\\"}]\"}",
+                    "{\"tool\": \"Successfully transferred to okahu_demo_lg_agent_air_travel_assistant\"}",
+                    "{\"ai\": \"I have successfully booked your flight from SFO to BOM.\"}",
+                    "{\"ai\": \"Transferring back to okahu_demo_lg_agent_travel_supervisor\"}",
+                    "{\"tool\": \"Successfully transferred back to okahu_demo_lg_agent_travel_supervisor\"}",
+                    "{\"ai\": \"[{\\\"name\\\": \\\"transfer_to_okahu_demo_lg_agent_lodging_assistant\\\", \\\"args\\\": {}, \\\"id\\\": \\\"call_ib38H9wah76qV0RuPG4TPpsu\\\", \\\"type\\\": \\\"tool_call\\\"}]\"}",
+                    "{\"tool\": \"Successfully transferred to okahu_demo_lg_agent_lodging_assistant\"}",
+                    "{\"ai\": \"I have successfully booked your stay at the Marriott hotel in central Mumbai.\"}",
+                    "{\"ai\": \"Transferring back to okahu_demo_lg_agent_travel_supervisor\"}",
+                    "{\"tool\": \"Successfully transferred back to okahu_demo_lg_agent_travel_supervisor\"}",
+                    "{\"ai\": \"[{\\\"name\\\": \\\"transfer_to_okahu_demo_lg_agent_weather_assistant\\\", \\\"args\\\": {}, \\\"id\\\": \\\"call_y820ibpZuVo83xgraRVYL395\\\", \\\"type\\\": \\\"tool_call\\\"}]\"}",
+                    "{\"tool\": \"Successfully transferred to okahu_demo_lg_agent_weather_assistant\"}",
+                    "{\"ai\": \"The weather in Mumbai next week is expected to be around 85\\u00b0F.\"}",
+                    "{\"ai\": \"Transferring back to okahu_demo_lg_agent_travel_supervisor\"}",
+                    "{\"tool\": \"Successfully transferred back to okahu_demo_lg_agent_travel_supervisor\"}"
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-01-09T22:59:27.622939Z",
+            "attributes": {
+                "response": "{\"ai\": \"Here is a summary of your requests:\\n- **Flight**: Your flight from SFO to BOM has been booked.\\n- **Hotel**: A stay at the Marriott hotel in central Mumbai has been booked.\\n- **Weather**: The weather in Mumbai next week is expected to be around 85\\u00b0F. \\n\\nIf you need any more assistance, feel free to ask!\"}"
+            }
+        },
+        {
+            "name": "metadata",
+            "timestamp": "2026-01-09T22:59:27.622980Z",
+            "attributes": {
+                "completion_tokens": 76,
+                "prompt_tokens": 770,
+                "total_tokens": 846,
+                "finish_reason": "stop",
+                "finish_type": "success"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_lg_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+
+,{
+    "name": "langgraph.graph.state.CompiledStateGraph.ainvoke",
+    "context": {
+        "trace_id": "2884cf1fe97c1a36481224157f7c6573",
+        "span_id": "bd7caa9cee5bb425",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "b0d453c9942659af",
+    "start_time": "2026-01-09T22:59:23.308387Z",
+    "end_time": "2026-01-09T22:59:27.624118Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0b6",
+        "monocle_apptrace.language": "python",
+        "span_source": "C:\\K_Coding\\git_src_tmp\\lg-travel-agent\\.venv\\Lib\\site-packages\\langgraph\\_internal\\_runnable.py:706",
+        "workflow.name": "okahu_demos_lg_travel_agent",
+        "entity.1.type": "agent.langgraph",
+        "entity.1.name": "okahu_demo_lg_agent_travel_supervisor",
+        "entity.1.from_agent": "okahu_demo_lg_agent_weather_assistant",
+        "entity.1.from_agent_span_id": "f27c5833ebc2c518",
+        "last.inference": "5f02265f68d7c5de:*",
+        "span.type": "agentic.invocation",
+        "scope.agentic.turn": "b416e60a1ff8ce5652cf98d8c63a652c",
+        "scope.agentic.invocation": "5791854a85cdefe73232117dbb4e0dee",
+        "entity.count": 1,
+        "span.subtype": "content_processing",
+        "monocle.last.agent.invocation.id": "",
+        "monocle.last.agent.name": "",
+        "inference.decision.span.id": "42bc6faf407718cf"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-01-09T22:59:23.308496Z",
+            "attributes": {
+                "input": [
+                    "Book a flight from SFO to BOM next week. Book a Marriott hotel in central Mumbai. Also what's the weather going to be in Mumbai next week?"
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-01-09T22:59:27.624068Z",
+            "attributes": {
+                "response": "Here is a summary of your requests:\n- **Flight**: Your flight from SFO to BOM has been booked.\n- **Hotel**: A stay at the Marriott hotel in central Mumbai has been booked.\n- **Weather**: The weather in Mumbai next week is expected to be around 85\u00b0F. \n\nIf you need any more assistance, feel free to ask!"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_lg_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+
+,{
+    "name": "langgraph.graph.state.CompiledStateGraph.ainvoke",
+    "context": {
+        "trace_id": "2884cf1fe97c1a36481224157f7c6573",
+        "span_id": "b0d453c9942659af",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "8cade72a50a2ed1b",
+    "start_time": "2026-01-09T22:59:12.655281Z",
+    "end_time": "2026-01-09T22:59:27.624476Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0b6",
+        "monocle_apptrace.language": "python",
+        "span_source": "C:\\K_Coding\\git_src_tmp\\lg-travel-agent\\lg_travel_agent.py:96",
+        "workflow.name": "okahu_demos_lg_travel_agent",
+        "entity.1.type": "agent.langgraph",
+        "monocle.last.agent.invocation.id": "bd7caa9cee5bb425",
+        "monocle.last.agent.name": "okahu_demo_lg_agent_travel_supervisor",
+        "last.inference": "5f02265f68d7c5de:*",
+        "span.type": "agentic.turn",
+        "scope.agentic.turn": "b416e60a1ff8ce5652cf98d8c63a652c",
+        "entity.count": 1,
+        "span.subtype": "turn"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-01-09T22:59:12.655399Z",
+            "attributes": {
+                "input": [
+                    "Book a flight from SFO to BOM next week. Book a Marriott hotel in central Mumbai. Also what's the weather going to be in Mumbai next week?"
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-01-09T22:59:27.624453Z",
+            "attributes": {
+                "response": "Here is a summary of your requests:\n- **Flight**: Your flight from SFO to BOM has been booked.\n- **Hotel**: A stay at the Marriott hotel in central Mumbai has been booked.\n- **Weather**: The weather in Mumbai next week is expected to be around 85\u00b0F. \n\nIf you need any more assistance, feel free to ask!"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_lg_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+
+,{
+    "name": "workflow",
+    "context": {
+        "trace_id": "2884cf1fe97c1a36481224157f7c6573",
+        "span_id": "8cade72a50a2ed1b",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-01-09T22:59:12.655109Z",
+    "end_time": "2026-01-09T22:59:27.624493Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.7.0b6",
+        "monocle_apptrace.language": "python",
+        "span_source": "C:\\K_Coding\\git_src_tmp\\lg-travel-agent\\lg_travel_agent.py:96",
+        "scope.agentic.turn": "b416e60a1ff8ce5652cf98d8c63a652c",
+        "workflow.name": "okahu_demos_lg_travel_agent",
+        "span.type": "workflow",
+        "entity.1.name": "okahu_demos_lg_travel_agent",
+        "entity.1.type": "workflow.langgraph",
+        "entity.2.type": "app_hosting.generic",
+        "entity.2.name": "generic",
+        "last.inference": "5f02265f68d7c5de:*"
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "okahu_demos_lg_travel_agent"
+        },
+        "schema_url": ""
+    }
+}
+
+]
