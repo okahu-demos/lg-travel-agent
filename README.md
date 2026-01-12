@@ -88,7 +88,7 @@ Try the sample inputs below and then visualize the Monocle generated traces in O
   - Windows
   
   ```
-  .venv\Scripts\activate.bat
+  .venv\Scripts\activate
   ```
 
 3. Install python dependencies: ```pip install -r requirements.txt```
