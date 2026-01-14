@@ -1,6 +1,7 @@
 import asyncio
 import os
 import time
+from dotenv import load_dotenv
 from langchain_core.messages import HumanMessage, ToolMessage
 from langchain_openai import ChatOpenAI
 from langchain.agents import create_agent
@@ -8,12 +9,12 @@ from langgraph_supervisor import create_supervisor
 from langchain_core.tools import tool
 from langchain_mcp_adapters.client import MultiServerMCPClient
 
-# os.environ["OPENAI_API_KEY"] = "<OPENAI-API-KEY>"  # Replace with your OpenAI API key
-# os.environ["OKAHU_API_KEY"] = "<OKAHU-API-KEY>"
+# Load environment variables from .env file
+load_dotenv()
 
 # Enable Monocle Tracing
 from monocle_apptrace import setup_monocle_telemetry
-setup_monocle_telemetry(workflow_name = 'okahu_demos_lg_travel_agent', monocle_exporters_list = 'file,okahu')
+setup_monocle_telemetry(workflow_name = 'okahu_demos_lg_travel_agent')
 
 import logging
 logger = logging.getLogger(__name__)
