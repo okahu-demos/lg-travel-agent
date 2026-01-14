@@ -121,6 +121,8 @@ Try the sample questions below and then visualize the Monocle generated traces i
 
    You should see a monocle generated trace in the [`.monocle`](.monocle) folder. Check out a sample trace in [`.monocle.example/monocle_trace`](.monocle.example/monocle_trace_okahu_demos_lg_travel_agent_2884cf1fe97c1a36481224157f7c6573_2026-01-09_14.59.15.json). Copy the trace file to [`.monocle`](.monocle) folder to visualize with the Okahu VS Code extension. 
 
+   ![Run Travel Agent python](images/vscode_run_agent.png)
+
 ## Visualize traces in VS Code to debug agents locally  
 
 1. Select Okahu extension 
