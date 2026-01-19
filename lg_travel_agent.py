@@ -1,3 +1,6 @@
+import subprocess
+import sys
+from pathlib import Path
 import asyncio
 import os
 import time
@@ -11,10 +14,22 @@ from langchain_mcp_adapters.client import MultiServerMCPClient
 
 # Load environment variables from .env file
 load_dotenv()
+OKAHU_API_KEY = os.getenv("OKAHU_API_KEY")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+# Automatically install requirements.txt if needed
+def ensure_requirements_installed():
+    req_file = Path(__file__).parent / "requirements.txt"
+    if req_file.exists():
+        subprocess.run([
+            sys.executable, "-m", "pip", "install", "-r", str(req_file)
+        ], check=True)
+
+ensure_requirements_installed()
 
 # Enable Monocle Tracing
 from monocle_apptrace import setup_monocle_telemetry
-setup_monocle_telemetry(workflow_name = 'okahu_demos_lg_travel_agent')
+setup_monocle_telemetry(workflow_name = 'okahu_demos_lg_travel_agent', monocle_exporters_list = 'file,okahu')
 
 import logging
 logger = logging.getLogger(__name__)
