@@ -8,12 +8,21 @@
    - Select Python Interpreter (Use version 3.10 to 3.13)
    - Select "Yes" when prompted "We noticed a new virtual environment has been created. Do you want to select it for the workspace folder?"
 
-2. **Configure API Keys**
-   - Add your `OPENAI_API_KEY` and `OKAHU_API_KEY` to a `.env` file.
-   - Set `MONOCLE_EXPORTER=file,okahu` to `MONOCLE_EXPORTER=file` if you would like to have your traces only exist locally and not be exported to the cloud
-   - **WARNING**: You cannot manually export traces from a local environment to the Okahu Cloud  
+2. **Install dependencies**
 
-3. **Start the mock weather MCP server**    
+   ```
+   pip install -r requirements.txt
+   ```
+
+3. **Configure API Keys and Trace Export**
+   - Add your `OPENAI_API_KEY` and `OKAHU_API_KEY` to a [`.env`](.env) file.
+   - Set `MONOCLE_EXPORTER` in [`.env`](.env) based on where you want traces stored:
+     - **Local traces only**: `MONOCLE_EXPORTER=file`
+     - **Cloud traces only**: `MONOCLE_EXPORTER=okahu`
+     - **Both local and cloud**: `MONOCLE_EXPORTER=file,okahu`
+   - **WARNING**: You cannot manually export traces from a local environment to the Okahu Cloud    
+
+4. **Start the mock weather MCP server**    
   - Mac/Linux
   
   ```
@@ -40,16 +49,16 @@
   > It is a Python program using the LangGraph agent framework.  
   > The app uses the OpenAI gpt-4o model for inference.
 
-4. **Open a file in VS Code**
+5. **Open a file in VS Code**
    - Open `lg_travel_agent.py` or `lg_travel_agent_multi_turn.py`
    - Click the "Run" button (▶) in the top right corner of the editor window.
 
-5. **Interact with the App**
+6. **Interact with the App**
    - The app will start in the integrated terminal.
    
    > The application will prompt you for a travel booking task. It should responds with successful booking of flight and hotel, as well as weather forcast.
 
-6. Use the following input:
+7. Use the following input:
 
    > Book a flight from SFO to BOM next week. Book a Marriott hotel in central Mumbai. Also what's the weather going to be in Mumbai next week?
 

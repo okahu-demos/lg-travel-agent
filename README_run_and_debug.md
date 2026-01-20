@@ -8,9 +8,12 @@
    - Select Python Interpreter (Use version 3.10 to 3.13)
    - Select "Yes" when prompted "We noticed a new virtual environment has been created. Do you want to select it for the workspace folder?"
 
-2. **Configure API Keys**
-   - Add your `OPENAI_API_KEY` and `OKAHU_API_KEY` to a `.env` file.
-   - Set `MONOCLE_EXPORTER=file,okahu` to `MONOCLE_EXPORTER=file` if you would like to have your traces only exist locally and not be exported to the cloud
+2. **Configure API Keys and Trace Export**
+   - Add your `OPENAI_API_KEY` and `OKAHU_API_KEY` to a [`.env`](.env) file.
+   - Set `MONOCLE_EXPORTER` in [`.env`](.env) based on where you want traces stored:
+     - **Local traces only**: `MONOCLE_EXPORTER=file`
+     - **Cloud traces only**: `MONOCLE_EXPORTER=okahu`
+     - **Both local and cloud**: `MONOCLE_EXPORTER=file,okahu`  
    - **WARNING**: You cannot manually export traces from a local environment to the Okahu Cloud  
 
 *Note: The MCP server is started automatically in this mode*

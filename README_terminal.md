@@ -17,7 +17,13 @@
        . ./.venv/bin/activate
        ```
 
-3. Configure the demo environment:
+3. Install dependencies:
+
+  ```
+  pip install -r requirements.txt
+  ```
+
+4. Configure the demo environment:
 
  - Mac/Linux
   
@@ -33,10 +39,15 @@
   set OPENAI_API_KEY=
   ```
 
-   - Set/Export `MONOCLE_EXPORTER=file,okahu` to `MONOCLE_EXPORTER=file` if you would like to have your traces only exist locally and not be exported to the cloud
-   - **WARNING**: You cannot manually export traces from a local environment to the Okahu Cloud  
+   Configure `MONOCLE_EXPORTER` based on where you want traces stored:
+   - **Local traces only**: `set MONOCLE_EXPORTER=file` (Windows) or `export MONOCLE_EXPORTER=file` (Mac/Linux)
+   - **Cloud traces only**: `set MONOCLE_EXPORTER=okahu` (Windows) or `export MONOCLE_EXPORTER=okahu` (Mac/Linux)
+   - **Both local and cloud**: `set MONOCLE_EXPORTER=file,okahu` (Windows) or `export MONOCLE_EXPORTER=file,okahu` (Mac/Linux)
+   - **WARNING**: You cannot manually export traces from a local environment to the Okahu Cloud 
+   
+   **Note**: When using terminal, you can also set `MONOCLE_EXPORTER` in the [`.env`](.env) file instead of using set/export commands.  
 
-4. **Start the mock weather MCP server**    
+5. **Start the mock weather MCP server**    
   - Mac/Linux
   
   ```
@@ -63,7 +74,7 @@
   > It is a Python program using the LangGraph agent framework.  
   > The app uses the OpenAI gpt-4o model for inference.
 
-5. **Run the Agent App**
+6. **Run the Agent App**
    ```
    python lg_travel_agent.py
    ```
@@ -75,7 +86,7 @@
    
    > The application will prompt you for a travel booking task. It should responds with successful booking of flight and hotel, as well as weather forcast.
 
-6. Use the following input:
+7. Use the following input:
 
    > Book a flight from SFO to BOM next week. Book a Marriott hotel in central Mumbai. Also what's the weather going to be in Mumbai next week?
 
