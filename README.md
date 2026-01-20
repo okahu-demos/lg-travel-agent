@@ -133,8 +133,12 @@ To run tests
    - Connect to Okahu Cloud as a cloud location
    - Visualize the remote traces from Okahu Cloud on your laptop
 
-   ![Remote traces in Okahu cloud](images/vscode_traces_in_okahu_cloud.png)
+   ![Remote traces in Okahu Cloud](images/vscode_traces_in_okahu_cloud.png)
 
+   - Click on `Evaluate` on the trace view and select the criteria without leaving VS Code
+
+   ![Evals on traces in Okahu Cloud](images/vscode_traces_evals.png)
+   
 3. In the Okahu Cloud 
     - Login to [Okahu Cloud portal](https://portal.okahu.co) 
     - Select 'Component' tab 
