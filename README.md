@@ -40,88 +40,24 @@ Try the sample questions below and then visualize the Monocle generated traces i
 |---------|---------------|-------------|
 | Run the pre-instrumented agent | OpenAI subscription and API key | 1. Get your API key from [OpenAI developer platform](https://platform.openai.com/overview)<br> 2. In VS Code <br> - Configure `OPENAI_API_KEY` in [`.env`](.env) <br> - Set `MONOCLE_EXPORTER=file` in [`.env`](.env) |
 | On your laptop <br> - Debug agents locally<br> - Visualize traces in IDE<br> - Test agents locally| Okahu VS Code Extension | Install [Okahu AI Debugging Agent](https://marketplace.visualstudio.com/items?itemName=OkahuAI.okahu-ai-observability) from Extensions Marketplace|
-| In the cloud <br> - Run evals with cloud compute<br> - Manage traces in the cloud | Okahu Cloud tenant and API key | 1. Sign up for [Okahu AI Observability Cloud](http://portal.okahu.co/) with your `LinkedIn` or `Github ID`<br>2. In Okahu Cloud <br>  - Navigate to 'Settings' on the left navigation bar <br>  - Click on 'Generate Okahu API Key'<br>  - Copy and save the API key (cannot be retrieved later) <br> 3. In VS Code <br> - Configure `OKAHU_API_KEY` in [`.env`](.env) <br> - Set `MONOCLE_EXPORTER=file,okahu` in [`.env`](.env) |
+| In the cloud <br> - Run evals with cloud compute<br> - Manage traces in the cloud | Okahu Cloud tenant and API key | 1. Sign up for [Okahu AI Observability Cloud](http://portal.okahu.co/) with your `LinkedIn` or `Github ID`<br>2. In Okahu Cloud <br>  - Navigate to 'Settings' on the left navigation bar <br>  - Click on 'Generate Okahu API Key'<br>  - Copy and save the API key (cannot be retrieved later) <br> 3. In VS Code <br> - Configure `OKAHU_API_KEY` in [`.env`](.env) <br> - Set `MONOCLE_EXPORTER=okahu` in [`.env`](.env) for cloud traces only <br> - Or set `MONOCLE_EXPORTER=file,okahu` for both local and cloud traces |
 
 
 ## Get started
 
-1. Create python virtual envirmonment
+Choose how you want to run or test the travel agent application:
 
-  ```
-  python -m venv .venv
-  ```
+### Running the Application
 
-2. Activate virtual environment
+- **[Using the Terminal](README_terminal.md)** - Run the agent using command-line interface with full control over environment setup and server management
 
-  - Mac/Linux
+- **[Using the Run Button](README_run_button.md)** - Quick start using VS Code's run button in the top right corner of the editor
 
-  ```
-  . ./.venv/bin/activate
-  ```
+- **[Using Run and Debug](README_run_and_debug.md)** - Debug the agent using VS Code's debugger with breakpoints and step-through execution
 
-  - Windows
-  
-  ```
-  .venv\Scripts\activate
-  ```
+### Testing the Application
 
-3. Install python dependencies: ```pip install -r requirements.txt```
-
-4. Configure the demo environment:
-  
- - Mac/Linux
-  
-  ```
-  export OKAHU_API_KEY=
-  export OPENAI_API_KEY=
-  ```
-
-  - Windows
-  
-  ```
-  set OKAHU_API_KEY=
-  set OPENAI_API_KEY=
-  ```
-
-  - Replace <OPENAI-API-KEY> with the value of OpenAI API key
-  - Replace <OKAHU-API-KEY> with the value of Okahu API key
-  
-5. Start the mock weather MCP server
-
-  - Mac/Linux
-  
-  ```
-  python weather-mcp-server.py > mcp.out 2>&1 & while ! grep -q "Application startup complete" mcp.out; do sleep 0.2; done; grep "Application startup complete" mcp.out
-  ```
-
-  - Windows
-  
-  ```
-  cmd /c "start "" /B cmd /c ^"python -u weather-mcp-server.py > mcp.out 2>&1^" & :wait & powershell -Command ^"Start-Sleep -Milliseconds 2000^" 
-  findstr /C:^"Application startup complete^" mcp.out"
-  ```
-
-  **Expected output**: `Application startup complete`
-
-  > This application is a travel agent app that mocks travel-related tasks such as flight booking, hotel booking, and checking weather in a city.  
-  > It is a Python program using the LangGraph agent framework.  
-  > The app uses the OpenAI gpt-4o model for inference.
-
-6. Run the pre-instrumented travel agent app with following command
-
-  ```
-  python lg_travel_agent.py
-  ```
-
-  > The application will prompt you for a travel booking task. It should responds with successful booking of flight and hotel, as well as weather forcast. 
-   
-7. Use the following input:
-
-   > Book a flight from SFO to BOM next week. Book a Marriott hotel in central Mumbai. Also what's the weather going to be in Mumbai next week?
-
-   You should see a monocle generated trace in the [`.monocle`](.monocle) folder. Check out a sample trace in [`.monocle.example/monocle_trace`](.monocle.example/monocle_trace_okahu_demos_lg_travel_agent_2884cf1fe97c1a36481224157f7c6573_2026-01-09_14.59.15.json). Copy the trace file to [`.monocle`](.monocle) folder to visualize with the Okahu VS Code extension. 
-
-   ![Run Travel Agent python](images/vscode_run_agent.png)
+- **[Running Tests](README_testing.md)** - Execute trace-driven tests to validate agent behavior and QA agents locally using pytest in VS Code
 
 ## Visualize traces in VS Code to debug agents locally  
 
@@ -202,7 +138,7 @@ To run tests
    - Click on `Evaluate` on the trace view and select the criteria without leaving VS Code
 
    ![Evals on traces in Okahu Cloud](images/vscode_traces_evals.png)
-
+   
 3. In the Okahu Cloud 
     - Login to [Okahu Cloud portal](https://portal.okahu.co) 
     - Select 'Component' tab 
