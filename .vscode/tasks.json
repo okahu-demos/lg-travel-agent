@@ -4,10 +4,16 @@
         {
             "label": "Start MCP server",
             "type": "shell",
-            "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+            "command": "${workspaceFolder}/.venv/bin/python",
             "args": [
-                "${workspaceFolder}\\weather-mcp-server.py"
+                "${workspaceFolder}/weather-mcp-server.py"
             ],
+            "windows": {
+                "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+                "args": [
+                    "${workspaceFolder}\\weather-mcp-server.py"
+                ]
+            },
             "presentation": {
                 "reveal": "silent",
                 "panel": "dedicated"
@@ -35,13 +41,20 @@
         {
             "label": "Terminate MCP server",
             "type": "shell",
-            "command": "taskkill",
+            "command": "pkill",
             "args": [
-                "/F",
-                "/IM",
-                "python.exe",
-                "/T"
+                "-f",
+                "weather-mcp-server.py"
             ],
+            "windows": {
+                "command": "taskkill",
+                "args": [
+                    "/F",
+                    "/IM",
+                    "python.exe",
+                    "/T"
+                ]
+            },
             "presentation": {
                 "reveal": "silent",
                 "panel": "dedicated"
