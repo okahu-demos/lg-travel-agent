@@ -4,13 +4,15 @@ import time
 from dotenv import load_dotenv
 from langchain_core.messages import HumanMessage, ToolMessage
 from langchain_openai import ChatOpenAI
-from langchain.agents import create_agent
+from langgraph.prebuilt import create_react_agent
 from langgraph_supervisor import create_supervisor
 from langchain_core.tools import tool
 from langchain_mcp_adapters.client import MultiServerMCPClient
 
 # Load environment variables from .env file
 load_dotenv()
+OKAHU_API_KEY = os.getenv("OKAHU_API_KEY")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 # Enable Monocle Tracing
 from monocle_apptrace import setup_monocle_telemetry
@@ -58,24 +60,24 @@ async def setup_agents():
 
     weather_tools = await get_mcp_tools()
 
-    flight_assistant = create_agent(
+    flight_assistant = create_react_agent(
     model=model_factory(),
         tools=[book_flight],
-        system_prompt="You are a flight booking assistant. You only handle flight booking. Just handle that part from what the user says, ignore other parts of the requests.",
+        prompt="You are a flight booking assistant. You only handle flight booking. Just handle that part from what the user says, ignore other parts of the requests.",
         name="okahu_demo_lg_agent_air_travel_assistant"
     )
 
-    hotel_assistant = create_agent(
+    hotel_assistant = create_react_agent(
     model=model_factory(),
         tools=[book_hotel],
-        system_prompt="You are a hotel booking assistant. You only handle hotel booking. Book hotel if the user explicitly asks, just handle that part from what the user says, ignore other parts of the requests.",
+        prompt="You are a hotel booking assistant. You only handle hotel booking. Book hotel if the user explicitly asks, just handle that part from what the user says, ignore other parts of the requests.",
         name="okahu_demo_lg_agent_lodging_assistant"
     )
 
-    weather_agent = create_agent(
+    weather_agent = create_react_agent(
     model=model_factory(),
         tools=weather_tools,
-        system_prompt="You are a weather information assistant. Please use the tool available to you for checking weather. Extract city name from the user query and pass it to the weather tool, and ignore other parts of the requests.",
+        prompt="You are a weather information assistant. Please use the tool available to you for checking weather. Extract city name from the user query and pass it to the weather tool, and ignore other parts of the requests.",
         name="okahu_demo_lg_agent_weather_assistant"
     )
     supervisor = create_supervisor(
