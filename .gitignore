@@ -209,5 +209,6 @@ __marimo__/
 .env
 .monocle
 mcp.out
+.vscode/mcp.json
 
 venv*
