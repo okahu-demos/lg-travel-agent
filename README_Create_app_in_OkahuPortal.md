@@ -30,7 +30,7 @@
    ![Insight in Okahu Cloud](images/okahu_application_insights.png) 
    
 
-4. Modify or Recreate existing application Okahu Cloud
+4. Modify or Recreate existing application in Okahu Cloud
     - In the Okahu Cloud, Select 'Application Tab'
     - Select the application which needs modification
 
