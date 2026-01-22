@@ -54,9 +54,12 @@ async def get_mcp_tools():
             }
         }
     )
-    # get list of all tools from the MCP server and their descriptions
-    tools = await client.get_tools()
-    return tools
+    try:
+        return await client.get_tools()
+    except Exception as exc:
+        logger.error(
+            "Weather MCP server unavailable. Start the weather-mcp-server.py before running the agent.")
+        raise RuntimeError("Weather MCP server unavailable. Please start weather-mcp-server.py.") from exc
 
 # Set up agents for travel booking
 async def setup_agents():
@@ -119,11 +122,15 @@ async def run_agent_turn(supervisor, request: str, session_id: str):
 
 # Run the agent with a user request
 async def run_agent_session(session_id: str):
-    supervisor: CompiledStateGraph = await setup_agents()
+    try:
+        supervisor: CompiledStateGraph = await setup_agents()
+    except RuntimeError as exc:
+        print(exc)
+        return
 
     while True:
         try:
-            request: str = input("\nI am a travel booking agent. How can I assist you with your travel plans? (You can ask me to book flights, hotels, or check the weather at any location.): ")
+            request: str = input("\nI am a travel booking agent. How can I assist you with your travel plans? (You can ask me to book flights, hotels, or check the weather at any location.): \n")
         except EOFError:
             print("\nBye...")
             break

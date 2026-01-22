@@ -111,6 +111,24 @@ Use this guide when something goes wrong while running the travel agent locally 
  * Recreate the folder with mkdir .monocle and ensure your user account has write permissions
  * On managed devices, move the repo to a user-writable path such as C:\Users\<you>\source\repos
 
+## 9. Weather MCP server unavailable during tests
+### Result + Error Codes you may see
+ * ERROR lg_travel_agent:lg_travel_agent.py:57 Weather MCP server unavailable. Start the weather-mcp-server.py before running the agent.
+ * AssertionError: No response found in agent request span
+ * ValueError: Both expected and actual must be strings for sentence comparison
+ * AssertionError: Tool 'okahu_demo_lg_tool_book_flight' was not invoked by agent 'None'
+ * All test cases fail with similar assertion or value errors
+### Likely Root Cause
+ * Weather MCP server (weather-mcp-server.py) is not running on http://localhost:8007
+ * Agent cannot retrieve MCP tools, causing workflow execution to fail or return None
+ * Tests expect valid agent responses but receive None due to incomplete initialization
+### Solution or Workaround
+ * Manually start the MCP server before running tests from terminal: python weather-mcp-server.py
+ * Wait for "Application startup complete" message before running pytest
+ * When using VS Code Testing activity bar, the MCP server starts automatically—no manual action needed
+ * Verify server is listening: curl http://localhost:8007/weather/mcp/ or check terminal output
+ * If port 8007 is occupied, set PORT environment variable to match in both server and agent
+
 
 
 # Common Warnings + Handling

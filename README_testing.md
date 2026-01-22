@@ -14,12 +14,19 @@
      - **Local traces only**: `MONOCLE_EXPORTER=file`
      - **Cloud traces only**: `MONOCLE_EXPORTER=okahu`
      - **Both local and cloud**: `MONOCLE_EXPORTER=file,okahu`
-   - **WARNING**: You cannot manually export traces from a local environment to the Okahu Cloud  
+   - **WARNING**: You cannot manually export traces from a local environment to the Okahu Cloud
 
-3. **Open the Testing Panel in VS Code**
+3. **Install Test Dependencies**
+   ```
+   cd tests
+   pip install -r requirements.txt
+   ```
+   *Note: Tests may not appear in the Testing panel until dependencies are installed.*
+
+4. **Open the Testing Panel in VS Code**
    - Click the "Testing" icon in the Activity Bar (left sidebar).
 
-4. **Run Tests**
+5. **Run Tests**
    - Click "Run Tests" to execute all tests, or run individual test files:
      - `test_lg_travel_agent.py`
      - `test_lg_travel_agent_fluent.py`
@@ -27,15 +34,11 @@
      - ✅ Passed tests in green
      - ❌ Failed tests in red with error details
 
-*Note: Test dependencies are installed automatically and the MCP server is started automatically when using the Testing activity bar.*
+*Note: The MCP server is started automatically when using the Testing activity bar.*
 
-5. **(Optional) Run Tests from Terminal**
+6. **(Optional) Run Tests from Terminal**
    ```
    pytest tests/test_lg_travel_agent.py -vv
    pytest tests/test_lg_travel_agent_fluent.py -vv
    ```
-   - Note: This may require you to install dependencies manually using the following commands
-   ```
-   cd tests
-   pip install -r requirements.txt
-   ```
+   *Note: When running tests from the terminal, you must manually start the MCP server first. See [README_terminal.md](README_terminal.md) step 5 for instructions on starting the mock weather MCP server.*
