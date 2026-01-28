@@ -6,7 +6,9 @@
    - Click Ctrl+Shift+P and type in "Python: Create Environment"
    - Select Venv
    - Select Python Interpreter (Use version 3.10 to 3.13)
-   - Select "Yes" when prompted "We noticed a new virtual environment has been created. Do you want to select it for the workspace folder?"
+   - Select the following as dependencies to install requirements.txt and tests/requirements.txt
+      - Manually install dependencies via terminal if you are not prompted for dependencies or are facing issues with this step
+   - Select "Yes" if prompted "We noticed a new virtual environment has been created. Do you want to select it for the workspace folder?"?"
 
 2. **Configure API Keys and Trace Export**
    - Add your `OPENAI_API_KEY` and `OKAHU_API_KEY` to a [`.env`](.env) file.
@@ -38,7 +40,7 @@
      - ✅ Passed tests in green
      - ❌ Failed tests in red with error details
 
-*Note: Keep the MCP server running; the tests rely on it for weather data.*
+*Note: The MCP server is started automatically when using the Testing activity bar.*
 
 7. **(Optional) Run Tests from Terminal**
    ```
