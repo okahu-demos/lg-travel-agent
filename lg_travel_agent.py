@@ -51,9 +51,11 @@ async def get_mcp_tools():
             }
         }
     )
-    # get list of all tools from the MCP server and their descriptions
-    tools = await client.get_tools()
-    return tools
+    try:
+        return await client.get_tools()
+    except Exception as exc:
+        logger.error("Weather MCP server unavailable. Start the weather-mcp-server.py before running the agent.")
+        raise RuntimeError("Weather MCP server unavailable. Please start weather-mcp-server.py.") from exc
 
 # Set up agents for travel booking
 async def setup_agents():
@@ -95,7 +97,11 @@ async def setup_agents():
 
 # Run the agent with a user request
 async def run_agent(request: str):
-    supervisor = await setup_agents()
+    try:
+        supervisor = await setup_agents()
+    except RuntimeError as exc:
+        print(exc)
+        return
     chunk = await supervisor.ainvoke(
         input={
             "messages": [
@@ -109,5 +115,5 @@ async def run_agent(request: str):
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.WARN)
-    request = input("\nI am a travel booking agent. How can I assist you with your travel plans? (You can ask me to book flights, hotels, or check the weather at any location.): ")
+    request = input("\nI am a travel booking agent. How can I assist you with your travel plans? (You can ask me to book flights, hotels, or check the weather at any location.): \n")
     asyncio.run(run_agent(request))

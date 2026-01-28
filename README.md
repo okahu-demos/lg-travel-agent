@@ -139,6 +139,18 @@ To run tests
 
    ![Evals on traces in Okahu Cloud](images/vscode_traces_evals.png)
    
+   - Use Okahu MCP Server to inspect and evaluate your traces
+   - Add Okahu API Key to .vscode/mcp.json file
+
+   ![Create MCP Server](images/mcp_key_update.png)
+   
+   - Next, click on Extensions in the activity bar and at the bottom the Okahu MCP Server will be listed. Click on the gear icon to start it
+   ![Activate Server](images/activate_server.png)
+   
+   - Open up the VSCode chat, start a new chat, and you can now use this chat to access and analyze your traces in the cloud
+   ![Okahu Chat Agent](images/okahu_mcp_vscode_chat.png)
+
+   
 3. In the Okahu Cloud 
     - Login to [Okahu Cloud portal](https://portal.okahu.co) 
     - Select 'Component' tab 
