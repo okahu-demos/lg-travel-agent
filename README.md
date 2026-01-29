@@ -140,11 +140,19 @@ To run tests
    ![Evals on traces in Okahu Cloud](images/vscode_traces_evals.png)
    
    - Use Okahu MCP Server to inspect and evaluate your traces
-   - Add Okahu API Key to .vscode/mcp.json file
+   - Configure the Okahu MCP server for your editor:
+      - VS Code (workspace) – update [.vscode/mcp.json](.vscode/mcp.json)
+      - Cursor – update [.cursor/mcp.json](.cursor/mcp.json)
+      - Kiro – update [.kiro/settings/mcp.json](.kiro/settings/mcp.json)
+      - Antigravity – copy [.agent/mcp_config.json](.agent/mcp_config.json) to your global MCP configuration so the server is available across projects. Place the file at `~/.gemini/antigravity/mcp_config.json` on macOS or Linux, or at `C:/Users/%USERNAME%/.gemini/antigravity/mcp_config.json` on Windows
+         - You can continue using the workspace-level [.vscode/mcp.json](.vscode/mcp.json), but the global configuration offers a more streamlined startup experience for the Antigravity MCP server
 
    ![Create MCP Server](images/mcp_key_update.png)
    
-   - Next, click on Extensions in the activity bar and at the bottom the Okahu MCP Server will be listed. Click on the gear icon to start it
+   - Open the Extensions view, locate the Okahu MCP Server entry, and start it using the gear icon
+   - Cursor and Kiro typically auto-start MCP servers; confirm by opening the Terminal output panel and selecting the corresponding MCP logs
+   - In Antigravity, open the chat agent, use the gear icon in the upper-right corner, and choose Manage MCP Servers to verify or start the integration
+   
    ![Activate Server](images/activate_server.png)
    
    - Open up the VSCode chat, start a new chat, and you can now use this chat to access and analyze your traces in the cloud
