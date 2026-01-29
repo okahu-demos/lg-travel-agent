@@ -2,11 +2,13 @@
 
 ## How to Run the Travel Agent Demo Using the "Run" Button
 
-1. **Create Python Virtual Environment**
+1. **Set Up the Python Environment**
    - Click Ctrl+Shift+P and type in "Python: Create Environment"
    - Select Venv
    - Select Python Interpreter (Use version 3.10 to 3.13)
-   - Select "Yes" when prompted "We noticed a new virtual environment has been created. Do you want to select it for the workspace folder?"
+   - Select the following as dependencies to install requirements.txt and tests/requirements.txt
+      - Manually install dependencies via terminal if you are not prompted for dependencies or are facing issues with this step. See [README_terminal.md](README_terminal.md) step 3 for manual installation instructions.
+   - Select "Yes" if prompted "We noticed a new virtual environment has been created. Do you want to select it for the workspace folder?"
 
 2. **Install dependencies**
 

@@ -6,7 +6,9 @@
    - Click Ctrl+Shift+P and type in "Python: Create Environment"
    - Select Venv
    - Select Python Interpreter (Use version 3.10 to 3.13)
-   - Select "Yes" when prompted "We noticed a new virtual environment has been created. Do you want to select it for the workspace folder?"
+   - Select the following as dependencies to install requirements.txt and tests/requirements.txt
+      - Manually install dependencies via terminal if you are not prompted for dependencies or are facing issues with this step. See [README_terminal.md](README_terminal.md) step 3 for manual installation instructions.
+   - Select "Yes" if prompted "We noticed a new virtual environment has been created. Do you want to select it for the workspace folder?"
 
 2. **Configure API Keys and Trace Export**
    - Add your `OPENAI_API_KEY` and `OKAHU_API_KEY` to a [`.env`](.env) file.
@@ -25,12 +27,12 @@
     > It is a Python program using the LangGraph agent framework.  
     > The app uses the OpenAI gpt-4o model for inference.
 
-4. **Start "Run and Debug"
+4. **Start "Run and Debug"**
    - Click the "Run and Debug" icon in the Activity Bar (left sidebar).
    - Select 
-        - `Python Debugger: lg-travel-agent Single Turn`, 
-        - `Python Debugger: lg-travel-agent Multi Turn`, 
-        - OR `Python: Current File` if you have the current file open
+        - `Single Turn Agent`, 
+        - `Multi Turn Agent`, 
+        - OR `Debug: Current File` if you have the current file open
    - Click the green "Run and Debug" button.
 
 5. **Use the App**

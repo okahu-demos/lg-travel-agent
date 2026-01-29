@@ -1,0 +1,32 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug: Current File",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "preLaunchTask": "Start MCP server",
+      "postDebugTask": "Terminate MCP server"
+    },
+    {
+      "name": "Multi Turn Agent",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/lg_travel_agent_multi_turn.py",
+      "console": "integratedTerminal",
+      "preLaunchTask": "Start MCP server",
+      "postDebugTask": "Terminate MCP server"
+    },
+    {
+      "name": "Single Turn Agent",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/lg_travel_agent.py",
+      "console": "integratedTerminal",
+      "preLaunchTask": "Start MCP server",
+      "postDebugTask": "Terminate MCP server"
+    }
+  ]
+}
