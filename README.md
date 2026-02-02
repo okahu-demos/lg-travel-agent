@@ -49,15 +49,15 @@ Choose how you want to run or test the travel agent application:
 
 ### Running the Application
 
-- **[Using the Terminal](README_terminal.md)** - Run the agent using command-line interface with full control over environment setup and server management
+- **[Using the Terminal](docs/README_terminal.md)** - Run the agent using command-line interface with full control over environment setup and server management
 
-- **[Using the Run Button](README_run_button.md)** - Quick start using VS Code's run button in the top right corner of the editor
+- **[Using the Run Button](docs/README_run_button.md)** - Quick start using VS Code's run button in the top right corner of the editor
 
-- **[Using Run and Debug](README_run_and_debug.md)** - Debug the agent using VS Code's debugger with breakpoints and step-through execution
+- **[Using Run and Debug](docs/README_run_and_debug.md)** - Debug the agent using VS Code's debugger with breakpoints and step-through execution
 
 ### Testing the Application
 
-- **[Running Tests](README_testing.md)** - Execute trace-driven tests to validate agent behavior and QA agents locally using pytest in VS Code
+- **[Running Tests](docs/README_testing.md)** - Execute trace-driven tests to validate agent behavior and QA agents locally using pytest in VS Code
 
 ## Visualize traces in VS Code to debug agents locally  
 
@@ -82,48 +82,7 @@ Choose how you want to run or test the travel agent application:
 
 ## Run tests in VS Code to QA agents locally
 
-This demo includes examples of trace-driven tests that are reproducible even for agents that rely on LLMs to make QA on agents easy. These tests rely on `monocle-test-tools` package that add AI abstraction on top of `pytest`. 
-
-Monocle provides: 
-- Native integration for pytest compatible tools including VS Code
-- Automatic trace capture during test execution for easy debugging of failed tests 
-- Validation of agent and tool invocations
-- Fluent assertions based on GenAI abstractions
-- Management of tests and traces in the cloud for observability 
-
-To run tests 
-
-1. Configure API key and other properties in [`.env`](.env) per the [prerequisites](#prerequisites). 
-
-
-2. Install python dependencies: 
-   ```
-   cd tests
-   pip install -r requirements.txt
-   ```
- 
-3. Open the Testing panel in VS Code
-
-    ![Testing in VS Code](images/testing_vs_code_icon.png)
-
-4. Click the "Run Tests" button to execute all tests or run individual test files:
-   - [`test_lg_travel_agent.py`](tests/test_lg_travel_agent.py) - Using assertions on any span property in monocle generated traces. 
-   - [`test_lg_travel_agent_fluent.py`](tests/test_lg_travel_agent_fluent.py) - Using fluent assertions such as `called_tool()`, `called_agent()`, `contains_input()`
-
-5. View test results directly in VS Code 
-   - ✅ Passed tests shown in green
-   - ❌ Failed tests shown in red with detailed error messages
-
-   ![Passed and failed test cases](images/vscode_tests.png)
-
-6. Alternatively, run tests from the terminal:
-   ```bash
-   pytest tests/test_lg_travel_agent.py -vv
-   ```
-   or
-   ```bash
-   pytest tests/test_lg_travel_agent_fluent.py -vv
-   ```
+Follow [README_testing.md](docs/README_testing.md) for the full testing workflow, including environment setup, VS Code Testing panel screenshots, and pytest commands for terminal runs. That guide also covers MCP server requirements and helpful tips for interpreting Monocle-generated traces during QA.
 
 ## Visualize traces, tests and evaluations run in the cloud
 
