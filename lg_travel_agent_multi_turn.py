@@ -132,6 +132,8 @@ async def run_agent_session(session_id: str):
         try:
             request: str = input("\nI am a travel booking agent. How can I assist you with your travel plans? (You can ask me to book flights, hotels, or check the weather at any location.): \n")
         except EOFError:
+            request = "exit"
+        if request.lower() in ["exit", "quit", ""]:
             print("\nBye...")
             break
         chunk = await run_agent_turn(supervisor, request, session_id)
