@@ -35,6 +35,7 @@ Monocle provides:
    - Click the "Run Tests" button to execute all tests or run individual test files:
       - [`test_lg_travel_agent.py`](../tests/test_lg_travel_agent.py) - Using assertions on any span property in monocle generated traces. 
       - [`test_lg_travel_agent_fluent.py`](../tests/test_lg_travel_agent_fluent.py) - Using fluent assertions such as `called_tool()`, `called_agent()`, `contains_input()`
+      - Quality, cost, and performance fluent assertions such as `with_evaluation("okahu").check_eval()`, `under_token_limit()`, `under_duration()`
 
 
 5. **Review results directly inside VS Code:**
