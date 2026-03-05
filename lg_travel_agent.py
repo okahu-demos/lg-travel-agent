@@ -112,6 +112,7 @@ async def run_agent(request: str):
         ]
     })
     print(chunk["messages"][-1].content)
+    return chunk["messages"][-1].content
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.WARN)
