@@ -5,12 +5,15 @@ from monocle_test_tools import TraceAssertion
 from lg_travel_agent import setup_agents
 
 supervisor = None
+flight_assistant = None
+hotel_assistant = None
+weather_agent = None
 
 @pytest_asyncio.fixture(scope="session", autouse=True)
 async def setup_supervior():
     """Set up the travel booking supervisor agent."""
-    global supervisor
-    supervisor = await setup_agents()
+    global supervisor, flight_assistant, hotel_assistant, weather_agent
+    supervisor, flight_assistant, hotel_assistant, weather_agent = await setup_agents(return_all_agents=True)
 
 @pytest.mark.asyncio
 async def test_okahu_tone_evaluation(monocle_trace_asserter: TraceAssertion):
@@ -35,7 +38,7 @@ async def test_okahu_quality_evaluation(monocle_trace_asserter: TraceAssertion):
 
 #testing token limit   
 @pytest.mark.asyncio
-async def test_token_limit(monocle_trace_asserter):
+async def test_token_limit(monocle_trace_asserter: TraceAssertion):
     await monocle_trace_asserter.run_agent_async(supervisor, "langgraph", "Book a flight from Chennai to Mumbai on April 30th 2026. Book hotel Marriott in Central Mumbai. Also how is the weather going to be in Mumbai?")
     monocle_trace_asserter.under_token_limit(5000)
 
@@ -115,6 +118,41 @@ async def test_agent_invocation(monocle_trace_asserter):
         .contains_output("Bengaluru") \
         .contains_output("successfully") \
         .contains_output("booked")
+
+
+@pytest.mark.asyncio
+async def test_individual_flight_agent(monocle_trace_asserter: TraceAssertion):
+    request = "Book a flight from Seattle to Tokyo"
+    await monocle_trace_asserter.run_agent_async(flight_assistant, "langgraph", request)
+
+    monocle_trace_asserter.called_tool("okahu_demo_lg_tool_book_flight", "okahu_demo_lg_agent_air_travel_assistant") \
+        .does_not_contain_output("booked")
+    
+    monocle_trace_asserter.with_evaluation("okahu").check_eval("sentiment", "positive")\
+        .check_eval("bias", "unbiased")
+
+
+@pytest.mark.asyncio
+async def test_individual_hotel_agent(monocle_trace_asserter: TraceAssertion):
+    request = "Book hotel Taj Palace in New Delhi"
+    await monocle_trace_asserter.run_agent_async(hotel_assistant, "langgraph", request)
+
+    monocle_trace_asserter.called_tool("okahu_demo_lg_tool_book_hotel", "okahu_demo_lg_agent_lodging_assistant") \
+        .does_not_contain_output("booked")
+    
+    monocle_trace_asserter.with_evaluation("okahu").check_eval("frustration", "ok")\
+        .check_eval("hallucination", "no_hallucination")
+
+
+@pytest.mark.asyncio
+async def test_individual_weather_agent(monocle_trace_asserter: TraceAssertion):
+    request = "What is the weather like tomorrow ?"
+    await monocle_trace_asserter.run_agent_async(weather_agent, "langgraph", request)
+
+    monocle_trace_asserter.called_tool("demo_get_weather", "okahu_demo_lg_agent_weather_assistant") \
+        .does_not_contain_output("temperature")
+    
+    monocle_trace_asserter.check_eval("contextual_precision", "high_precision")
     
 if __name__ == "__main__":
     pytest.main([__file__]) 

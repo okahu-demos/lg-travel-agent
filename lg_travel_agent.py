@@ -58,7 +58,7 @@ async def get_mcp_tools():
         raise RuntimeError("Weather MCP server unavailable. Please start weather-mcp-server.py.") from exc
 
 # Set up agents for travel booking
-async def setup_agents():
+async def setup_agents(return_all_agents: bool = False):
 
     weather_tools = await get_mcp_tools()
 
@@ -93,6 +93,8 @@ async def setup_agents():
         )
     ).compile()
 
+    if return_all_agents:
+        return supervisor, flight_assistant, hotel_assistant, weather_agent
     return supervisor
 
 # Run the agent with a user request
