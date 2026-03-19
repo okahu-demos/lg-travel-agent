@@ -127,7 +127,8 @@ async def test_individual_flight_agent(monocle_trace_asserter: TraceAssertion):
 
     monocle_trace_asserter.called_tool("okahu_demo_lg_tool_book_flight", "okahu_demo_lg_agent_air_travel_assistant") \
         .does_not_contain_output("booked")\
-        .under_token_limit(5000)
+        .under_token_limit(5000)\
+        .under_duration(300)
     
     monocle_trace_asserter.with_evaluation("okahu").check_eval("sentiment", "positive")\
         .check_eval("bias", "unbiased")
@@ -140,7 +141,8 @@ async def test_individual_hotel_agent(monocle_trace_asserter: TraceAssertion):
 
     monocle_trace_asserter.called_tool("okahu_demo_lg_tool_book_hotel", "okahu_demo_lg_agent_lodging_assistant") \
     .does_not_contain_output("booked")\
-    .under_token_limit(5000)
+    .under_token_limit(5000)\
+    .under_duration(300)
     
     
     monocle_trace_asserter.with_evaluation("okahu").check_eval("frustration", "ok")\
@@ -155,7 +157,9 @@ async def test_individual_weather_agent(monocle_trace_asserter: TraceAssertion):
 
     monocle_trace_asserter.called_tool("demo_get_weather", "okahu_demo_lg_agent_weather_assistant") \
     .does_not_contain_output("temperature")\
-    .under_token_limit(5000)
+    .under_token_limit(5000)\
+    .under_duration(300)
+
     
     monocle_trace_asserter.with_evaluation("okahu").check_eval("contextual_precision", "high_precision")
     
