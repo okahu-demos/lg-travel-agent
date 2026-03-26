@@ -16,7 +16,7 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 # Enable Monocle Tracing
 from monocle_apptrace import setup_monocle_telemetry
-setup_monocle_telemetry(workflow_name = 'okahu_demos_lg_travel_agent')
+setup_monocle_telemetry(workflow_name = 'lg_travel_agent')
 
 import logging
 logger = logging.getLogger(__name__)
