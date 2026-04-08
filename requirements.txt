@@ -5,7 +5,7 @@ mcp==1.27.0
 langchain==1.2.15
 langchain-core==1.2.27
 langchain-openai==1.1.12
-langchain-community==0.7.1
+langchain-community==0.4.1
 langchainhub==0.1.21
 tavily-python==0.7.23
 langgraph-checkpoint-sqlite==3.0.3
