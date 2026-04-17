@@ -12,5 +12,5 @@ langgraph-checkpoint-sqlite==3.0.3
 langgraph==1.1.5
 langgraph-supervisor==0.0.31
 langchain-mcp-adapters==0.2.2
-monocle-apptrace==0.7.7
-monocle-test-tools==0.7.7
+monocle-apptrace==0.7.8
+monocle-test-tools==0.7.8
