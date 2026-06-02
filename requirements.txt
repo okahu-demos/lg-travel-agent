@@ -13,4 +13,4 @@ langgraph==1.1.5
 langgraph-supervisor==0.0.31
 langchain-mcp-adapters==0.2.2
 monocle-apptrace==0.8.1
-monocle-test-tools==0.8.1
+monocle-test-tools==0.8.2
