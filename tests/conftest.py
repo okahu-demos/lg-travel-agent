@@ -34,4 +34,4 @@ def set_env_vars_on_local_run():
     In CI/CD, environment variables should already be set."""
     env_test_path = Path(__file__).parent.parent / '.env.test'
     if env_test_path.exists():
-        load_dotenv(env_test_path)
+        load_dotenv(env_test_path, override=True)
