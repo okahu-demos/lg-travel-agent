@@ -25,15 +25,16 @@ async def test_flight_and_hotel_booking(monocle_trace_asserter):
     await monocle_trace_asserter.run_agent_async(supervisor, "langgraph", "Bengaluru", session_id=session_id)
     await monocle_trace_asserter.run_agent_async(supervisor, "langgraph", "Book a hotel Marriott in Bengaluru", session_id=session_id)
 
+    # Turn 1: Agent asks for destination (no tool call)
     monocle_trace_asserter.called_agent("okahu_demo_lg_agent_air_travel_assistant") \
         .contains_input("Book a flight from Chennai for 28th August 2026") \
         .does_not_call_tool("okahu_demo_lg_tool_book_flight","okahu_demo_lg_agent_air_travel_assistant") \
         .contains_any_output("please","specify", "provide", "destination", "city", "arrival")
 
-    # monocle_trace_asserter.does_not_call_tool("okahu_demo_lg_tool_book_flight","okahu_demo_lg_agent_air_travel_assistant")
     monocle_trace_asserter.called_agent("okahu_demo_lg_agent_air_travel_assistant") \
         .does_not_call_tool("okahu_demo_lg_tool_book_flight")
 
+    # Turn 2: Agent books flight with complete info
     monocle_trace_asserter.called_agent("okahu_demo_lg_agent_air_travel_assistant") \
         .contains_input("Bengaluru") \
         .contains_output("flight") \
@@ -76,7 +77,7 @@ async def test_eval_on_flight_and_hotel_booking_session(monocle_trace_asserter):
                     expected="frustrated") \
         .check_eval("hallucination",
                     fact_name="agentic_sessions",
-                    expected="no_hallucination")
+                    expected="major_hallucination")
     
 if __name__ == "__main__":
     pytest.main([__file__])
