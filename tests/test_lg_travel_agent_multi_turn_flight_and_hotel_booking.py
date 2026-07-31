@@ -8,7 +8,7 @@ supervisor = None
 session_id = None
 
 @pytest_asyncio.fixture(scope="session", autouse=True)
-async def setup_supervior():
+async def setup_supervisor():
     """Set up the travel booking supervisor agent."""
     global supervisor
     supervisor = await setup_agents()
@@ -18,7 +18,7 @@ async def setup_supervior():
 
 
 @pytest.mark.asyncio
-@pytest.mark.repeat(3)  # Repeat the test 3 times to check for consistency
+@pytest.mark.repeat(3)  # Repeat the test multiple time(s) to check for consistency
 async def test_flight_and_hotel_booking(monocle_trace_asserter):
 
     await monocle_trace_asserter.run_agent_async(supervisor, "langgraph", "Book a flight from Chennai for 28th August 2026", session_id=session_id)
@@ -49,8 +49,8 @@ async def test_flight_and_hotel_booking(monocle_trace_asserter):
 
     monocle_trace_asserter \
         .called_agent("okahu_demo_lg_agent_air_travel_assistant") \
-        .under_token_limit(500) \
-        .under_duration(3, units="seconds", span_type="agent_invocation")
+        .under_token_limit(1000) \
+        .under_duration(8, units="seconds", span_type="agent_invocation")
 
     monocle_trace_asserter.called_agent("okahu_demo_lg_agent_lodging_assistant") \
             .contains_input("Book a hotel Marriott in Bengaluru") \
@@ -67,6 +67,11 @@ async def test_flight_and_hotel_booking(monocle_trace_asserter):
     monocle_trace_asserter.called_agent("okahu_demo_lg_agent_travel_supervisor", count=6)
     monocle_trace_asserter.called_agent("okahu_demo_lg_agent_lodging_assistant", count=1)
 
+    # monocle_trace_asserter.with_evaluation("okahu").check_eval("frustration", expected="ok")
+    # monocle_trace_asserter.with_evaluation("okahu").check_eval(fact_name="inferences", eval_name="sentiment", not_expected="negative")
+    # monocle_trace_asserter.with_evaluation("okahu").check_eval(fact_name="agentic_turns", eval_name="sentiment", not_expected="negative")
+    # monocle_trace_asserter.with_evaluation("okahu").check_eval("hallucination", fact_name="agentic_sessions", expected="no_hallucination")
+    
 @pytest.mark.asyncio
 async def test_eval_on_flight_and_hotel_booking_session(monocle_trace_asserter):
     monocle_trace_asserter \

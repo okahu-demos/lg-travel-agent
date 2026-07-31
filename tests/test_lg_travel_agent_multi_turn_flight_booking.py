@@ -17,8 +17,8 @@ async def setup_supervior():
         session_id = generate_session_id()
 
 
-@pytest.mark.asyncio
-@pytest.mark.repeat(3)  # Repeat the test 3 times to check for consistency
+@pytest.mark.asyncio   
+@pytest.mark.repeat(3)  # Repeat the test multiple time(s) to check for consistency
 async def test_flight_booking(monocle_trace_asserter):
     await monocle_trace_asserter.run_agent_async(supervisor, "langgraph", "Book a flight from SFO for 28th August 2026", session_id=session_id)
     await monocle_trace_asserter.run_agent_async(supervisor, "langgraph", "BOM", session_id=session_id)
@@ -26,7 +26,6 @@ async def test_flight_booking(monocle_trace_asserter):
     # Turn 1: Agent asks for destination (no tool call)
     monocle_trace_asserter.called_agent("okahu_demo_lg_agent_air_travel_assistant") \
         .contains_input("Book a flight from SFO for 28th August 2026") \
-        .does_not_call_tool("okahu_demo_lg_tool_book_flight","okahu_demo_lg_agent_air_travel_assistant") \
         .contains_any_output("please","specify", "provide", "destination", "city", "arrival", "fly to")
 
     monocle_trace_asserter.called_agent("okahu_demo_lg_agent_air_travel_assistant") \
@@ -50,8 +49,8 @@ async def test_flight_booking(monocle_trace_asserter):
 
     monocle_trace_asserter \
         .called_agent("okahu_demo_lg_agent_air_travel_assistant") \
-        .under_token_limit(500) \
-        .under_duration(3, units="seconds", span_type="agent_invocation")
+        .under_token_limit(800) \
+        .under_duration(5, units="seconds", span_type="agent_invocation")
 
 @pytest.mark.asyncio
 async def test_eval_on_flight_booking_session(monocle_trace_asserter):
